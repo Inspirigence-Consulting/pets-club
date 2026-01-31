@@ -1,0 +1,78 @@
+{
+  "common": {
+    "siteName": "Pet's Club Morocco",
+    "siteDescription": "Premium and ethical breeding of Pomeranians and Australian Shepherds in Morocco",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "contactUs": "Contact us",
+    "learnMore": "Learn more",
+    "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Our Story",
+    "ethics": "Ethical Breeding",
+    "breeds": "Our Breeds",
+    "puppies": "Our Puppies",
+    "gallery": "Gallery",
+    "community": "Community",
+    "contact": "Contact",
+    "pomeranian": "Pomeranian",
+    "australianShepherd": "Australian Shepherd"
+  },
+  "hero": {
+    "subtitle": "Premium Breeding in Morocco",
+    "title": "Exceptional Companions, Raised with Love",
+    "description": "Pomeranians & Australian Shepherds from champion bloodlines. An ethical commitment to exceptional companions.",
+    "cta": "Discover Our Puppies",
+    "ctaSecondary": "Our Story"
+  },
+  "cta": {
+    "discoverPuppies": "Discover Our Puppies",
+    "reserveCompanion": "Reserve My Companion",
+    "planVideoCall": "Schedule a Video Call",
+    "requestVisit": "Request a Visit",
+    "joinWaitingList": "Join the Waiting List",
+    "contactWhatsApp": "Contact on WhatsApp",
+    "sendMessage": "Send",
+    "downloadGuide": "Download Guide"
+  },
+  "puppies": {
+    "filterBreed": "Breed",
+    "filterGender": "Gender",
+    "filterStatus": "Status",
+    "all": "All",
+    "male": "Male",
+    "female": "Female",
+    "available": "Available",
+    "reserved": "Reserved",
+    "coming": "Coming Soon",
+    "adopted": "Adopted",
+    "investmentOnRequest": "Investment on request",
+    "whatsIncluded": "What's included",
+    "parents": "Parents",
+    "noResults": "No puppies match your criteria at this time."
+  },
+  "form": {
+    "name": "Full name",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "city": "City",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Message sent",
+    "successMessage": "Thank you for your message. Our team will contact you shortly.",
+    "privacy": "By submitting this form, you agree to our privacy policy."
+  },
+  "footer": {
+    "tagline": "Premium and ethical breeding of Pomeranians and Australian Shepherds. Exceptional companions, raised with love.",
+    "navigation": "Navigation",
+    "ourBreeds": "Our Breeds",
+    "contact": "Contact",
+    "legal": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
+  }
+}

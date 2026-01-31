@@ -1,0 +1,40 @@
+{
+  "common": {
+    "siteName": "Pet's Club Marruecos",
+    "siteDescription": "Cría premium y ética de Pomerania y Pastor Australiano en Marruecos",
+    "readMore": "Leer más",
+    "viewAll": "Ver todo",
+    "contactUs": "Contáctenos",
+    "learnMore": "Saber más",
+    "close": "Cerrar"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Nuestra Historia",
+    "ethics": "Cría Ética",
+    "breeds": "Nuestras Razas",
+    "puppies": "Nuestros Cachorros",
+    "gallery": "Galería",
+    "community": "Comunidad",
+    "contact": "Contacto",
+    "pomeranian": "Pomerania",
+    "australianShepherd": "Pastor Australiano"
+  },
+  "hero": {
+    "subtitle": "Cría Premium en Marruecos",
+    "title": "Compañeros Excepcionales, Criados con Amor",
+    "description": "Pomerania y Pastor Australiano de líneas campeonas. Un compromiso ético con compañeros excepcionales.",
+    "cta": "Descubrir Nuestros Cachorros",
+    "ctaSecondary": "Nuestra Historia"
+  },
+  "cta": {
+    "discoverPuppies": "Descubrir Nuestros Cachorros",
+    "reserveCompanion": "Reservar Mi Compañero",
+    "planVideoCall": "Programar una Videollamada",
+    "requestVisit": "Solicitar una Visita",
+    "joinWaitingList": "Unirse a la Lista de Espera",
+    "contactWhatsApp": "Contactar por WhatsApp",
+    "sendMessage": "Enviar",
+    "downloadGuide": "Descargar Guía"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "common": {
+    "siteName": "Pet's Club Marokko",
+    "siteDescription": "Premium und ethische Zucht von Zwergspitz und Australian Shepherd in Marokko",
+    "readMore": "Mehr erfahren",
+    "viewAll": "Alle anzeigen",
+    "contactUs": "Kontaktieren Sie uns",
+    "learnMore": "Mehr erfahren",
+    "close": "Schließen"
+  },
+  "nav": {
+    "home": "Startseite",
+    "about": "Unsere Geschichte",
+    "ethics": "Ethische Zucht",
+    "breeds": "Unsere Rassen",
+    "puppies": "Unsere Welpen",
+    "gallery": "Galerie",
+    "community": "Gemeinschaft",
+    "contact": "Kontakt",
+    "pomeranian": "Zwergspitz (Pomeranian)",
+    "australianShepherd": "Australian Shepherd"
+  },
+  "hero": {
+    "subtitle": "Premium Zucht in Marokko",
+    "title": "Außergewöhnliche Begleiter, Mit Liebe Aufgezogen",
+    "description": "Zwergspitz & Australian Shepherd aus Champion-Blutlinien. Ein ethisches Engagement für außergewöhnliche Begleiter.",
+    "cta": "Unsere Welpen Entdecken",
+    "ctaSecondary": "Unsere Geschichte"
+  },
+  "cta": {
+    "discoverPuppies": "Unsere Welpen Entdecken",
+    "reserveCompanion": "Meinen Begleiter Reservieren",
+    "planVideoCall": "Videoanruf Planen",
+    "requestVisit": "Besuch Anfragen",
+    "joinWaitingList": "Warteliste Beitreten",
+    "contactWhatsApp": "Über WhatsApp Kontaktieren",
+    "sendMessage": "Senden",
+    "downloadGuide": "Leitfaden Herunterladen"
+  }
+}

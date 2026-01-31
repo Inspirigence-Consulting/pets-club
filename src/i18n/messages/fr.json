@@ -1,0 +1,78 @@
+{
+  "common": {
+    "siteName": "Pet's Club Maroc",
+    "siteDescription": "Élevage premium et éthique de Spitz Nain et Berger Australien au Maroc",
+    "readMore": "En savoir plus",
+    "viewAll": "Voir tout",
+    "contactUs": "Nous contacter",
+    "learnMore": "En savoir plus",
+    "close": "Fermer"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "Notre Histoire",
+    "ethics": "Élevage Éthique",
+    "breeds": "Nos Races",
+    "puppies": "Nos Chiots",
+    "gallery": "Galerie",
+    "community": "Communauté",
+    "contact": "Contact",
+    "pomeranian": "Spitz Nain (Pomeranian)",
+    "australianShepherd": "Berger Australien"
+  },
+  "hero": {
+    "subtitle": "Élevage Premium au Maroc",
+    "title": "Des Compagnons d'Exception, Élevés avec Amour",
+    "description": "Spitz Nain & Berger Australien de lignées championnes. Un engagement éthique pour des compagnons d'exception.",
+    "cta": "Découvrir Nos Chiots",
+    "ctaSecondary": "Notre Histoire"
+  },
+  "cta": {
+    "discoverPuppies": "Découvrir Nos Chiots",
+    "reserveCompanion": "Réserver Mon Compagnon",
+    "planVideoCall": "Planifier Un Appel Vidéo",
+    "requestVisit": "Demander Une Visite",
+    "joinWaitingList": "Rejoindre la Liste d'Attente",
+    "contactWhatsApp": "Contacter sur WhatsApp",
+    "sendMessage": "Envoyer",
+    "downloadGuide": "Télécharger le Guide"
+  },
+  "puppies": {
+    "filterBreed": "Race",
+    "filterGender": "Genre",
+    "filterStatus": "Statut",
+    "all": "Tous",
+    "male": "Mâle",
+    "female": "Femelle",
+    "available": "Disponible",
+    "reserved": "Réservé",
+    "coming": "Bientôt disponible",
+    "adopted": "Adopté",
+    "investmentOnRequest": "Investissement sur demande",
+    "whatsIncluded": "Ce qui est inclus",
+    "parents": "Les Parents",
+    "noResults": "Aucun chiot ne correspond à vos critères pour le moment."
+  },
+  "form": {
+    "name": "Nom complet",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "city": "Ville",
+    "subject": "Objet de votre demande",
+    "message": "Message",
+    "submit": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé",
+    "successMessage": "Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.",
+    "privacy": "En soumettant ce formulaire, vous acceptez notre politique de confidentialité."
+  },
+  "footer": {
+    "tagline": "Élevage premium et éthique de Spitz Nain et Berger Australien. Des compagnons d'exception, élevés avec amour.",
+    "navigation": "Navigation",
+    "ourBreeds": "Nos Races",
+    "contact": "Contact",
+    "legal": "Mentions Légales",
+    "privacy": "Politique de Confidentialité",
+    "rights": "Tous droits réservés."
+  }
+}

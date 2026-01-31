@@ -1,0 +1,40 @@
+{
+  "common": {
+    "siteName": "Pet's Club Marocco",
+    "siteDescription": "Allevamento premium ed etico di Pomerania e Pastore Australiano in Marocco",
+    "readMore": "Leggi di più",
+    "viewAll": "Vedi tutto",
+    "contactUs": "Contattaci",
+    "learnMore": "Scopri di più",
+    "close": "Chiudi"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "La Nostra Storia",
+    "ethics": "Allevamento Etico",
+    "breeds": "Le Nostre Razze",
+    "puppies": "I Nostri Cuccioli",
+    "gallery": "Galleria",
+    "community": "Comunità",
+    "contact": "Contatto",
+    "pomeranian": "Pomerania",
+    "australianShepherd": "Pastore Australiano"
+  },
+  "hero": {
+    "subtitle": "Allevamento Premium in Marocco",
+    "title": "Compagni Eccezionali, Cresciuti con Amore",
+    "description": "Pomerania e Pastore Australiano da linee di campioni. Un impegno etico per compagni eccezionali.",
+    "cta": "Scopri i Nostri Cuccioli",
+    "ctaSecondary": "La Nostra Storia"
+  },
+  "cta": {
+    "discoverPuppies": "Scopri i Nostri Cuccioli",
+    "reserveCompanion": "Prenota il Mio Compagno",
+    "planVideoCall": "Programma una Videochiamata",
+    "requestVisit": "Richiedi una Visita",
+    "joinWaitingList": "Unisciti alla Lista d'Attesa",
+    "contactWhatsApp": "Contatta su WhatsApp",
+    "sendMessage": "Invia",
+    "downloadGuide": "Scarica la Guida"
+  }
+}
