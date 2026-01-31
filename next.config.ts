@@ -1,12 +1,12 @@
 import type { NextConfig } from "next";
+import { resolve } from "path";
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: resolve(__dirname),
+  },
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-      },
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
