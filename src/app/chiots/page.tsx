@@ -1,37 +1,122 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Grid3X3, LayoutGrid, Heart } from 'lucide-react';
+import { Grid3X3, LayoutGrid, Heart, Loader2 } from 'lucide-react';
 import PuppyCard from '@/components/ui/PuppyCard';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { mockPuppies } from '@/lib/mock-data';
+import { mockPuppies, type Puppy } from '@/lib/mock-data';
 
 type FilterBreed = 'all' | 'pomeranian' | 'berger-australien';
 type FilterStatus = 'all' | 'available' | 'reserved' | 'coming' | 'sold';
 type ViewMode = 'feed' | 'grid';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+function mapApiPuppy(apiPuppy: any): Puppy {
+  const breed = apiPuppy.litter?.sire?.breed?.toLowerCase() || '';
+  const breedSlug = breed.includes('pomeranian')
+    ? 'pomeranian'
+    : breed.includes('australien') || breed.includes('australian')
+      ? 'berger-australien'
+      : 'pomeranian';
+  const breedLabel = breedSlug === 'pomeranian' ? 'Spitz Nain' : 'Berger Australien';
+
+  return {
+    id: apiPuppy.id,
+    name: apiPuppy.name,
+    breed: breedSlug as 'pomeranian' | 'berger-australien',
+    breedLabel,
+    gender: apiPuppy.gender === 'MALE' ? 'male' : 'female',
+    dob: apiPuppy.dateOfBirth?.split('T')[0] || '',
+    color: apiPuppy.color || '',
+    line: apiPuppy.litter?.name || '',
+    status: 'available',
+    image: apiPuppy.photos?.[0] || '/images/placeholder-puppy.jpg',
+    images:
+      apiPuppy.photos?.length > 0
+        ? apiPuppy.photos
+        : ['/images/placeholder-puppy.jpg'],
+    description: apiPuppy.description || '',
+    father: {
+      name: apiPuppy.litter?.sire?.name || 'Inconnu',
+      titles: [],
+      image: apiPuppy.litter?.sire?.photo || '/images/placeholder-dog.jpg',
+      healthTests: [],
+      breed: apiPuppy.litter?.sire?.breed || '',
+      color: '',
+    },
+    mother: {
+      name: apiPuppy.litter?.dam?.name || 'Inconnu',
+      titles: [],
+      image: apiPuppy.litter?.dam?.photo || '/images/placeholder-dog.jpg',
+      healthTests: [],
+      breed: apiPuppy.litter?.dam?.breed || '',
+      color: '',
+    },
+    included: [
+      'Carnet de vaccination à jour',
+      'Puce électronique',
+      'Certificat de santé',
+      'Kit de démarrage',
+    ],
+    slug: apiPuppy.slug,
+  };
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
 export default function PuppiesPage() {
   const [breed, setBreed] = useState<FilterBreed>('all');
   const [status, setStatus] = useState<FilterStatus>('all');
   const [view, setView] = useState<ViewMode>('feed');
+  const [puppies, setPuppies] = useState<Puppy[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchPuppies() {
+      try {
+        const res = await fetch('/api/puppies?limit=50');
+        if (!res.ok) throw new Error('API error');
+        const json = await res.json();
+        const mapped = (json.data || []).map(mapApiPuppy);
+        if (!cancelled) {
+          setPuppies(mapped);
+        }
+      } catch {
+        // Fallback to mock data when API is unavailable
+        if (!cancelled) {
+          setPuppies(mockPuppies);
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    }
+
+    fetchPuppies();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const filtered = useMemo(() => {
-    return mockPuppies.filter((p) => {
+    return puppies.filter((p) => {
       if (breed !== 'all' && p.breed !== breed) return false;
       if (status !== 'all' && p.status !== status) return false;
       return true;
     });
-  }, [breed, status]);
+  }, [puppies, breed, status]);
 
-  const availableCount = mockPuppies.filter(p => p.status === 'available').length;
-  const totalCount = mockPuppies.length;
+  const availableCount = puppies.filter(p => p.status === 'available').length;
+  const totalCount = puppies.length;
 
   return (
     <>
       {/* Profile-style header */}
-      <section className="relative pt-32 pb-0 bg-[var(--color-warm-white)]">
+      <section className="relative pt-40 pb-0 bg-[var(--color-warm-white)]">
         <div className="container-luxury">
           <Breadcrumbs items={[{ label: 'Nos Chiots' }]} />
 
@@ -81,8 +166,8 @@ export default function PuppiesPage() {
               </div>
 
               <p className="text-sm text-[var(--color-text-light)] max-w-lg">
-                Tous issus de lignées championnes et élevés avec amour.
-                Chaque compagnon bénéficie de notre programme de socialisation de 10 semaines.
+                Chaque chiot est issu de reproducteurs titrés et testés génétiquement.
+                Il grandit chez nous pendant 10 semaines avant de rejoindre sa famille.
               </p>
             </motion.div>
 
@@ -109,7 +194,7 @@ export default function PuppiesPage() {
           >
             <div className="flex items-center justify-between py-3">
               {/* Breed filter pills */}
-              <div className="flex gap-2 overflow-x-auto pb-1">
+              <div className="flex gap-2 overflow-x-auto flex-nowrap scrollbar-hide pb-1">
                 {([
                   { value: 'all' as FilterBreed, label: 'Tous' },
                   { value: 'pomeranian' as FilterBreed, label: 'Spitz Nain' },
@@ -173,47 +258,56 @@ export default function PuppiesPage() {
       {/* Feed Grid */}
       <section className="pb-16 bg-[var(--color-warm-white)]">
         <div className="container-luxury">
-          <AnimatePresence mode="wait">
-            {filtered.length > 0 ? (
-              <motion.div
-                key={`${breed}-${status}-${view}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {view === 'feed' ? (
-                  <div className="feed-grid">
-                    {filtered.map((puppy, i) => (
-                      <PuppyCard key={puppy.id} puppy={puppy} index={i} variant="feed" />
-                    ))}
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-20">
+              <Loader2 size={32} className="animate-spin text-[var(--color-gold)] mb-4" />
+              <p className="text-sm text-[var(--color-text-muted)]">
+                Chargement des chiots...
+              </p>
+            </div>
+          ) : (
+            <AnimatePresence mode="wait">
+              {filtered.length > 0 ? (
+                <motion.div
+                  key={`${breed}-${status}-${view}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {view === 'feed' ? (
+                    <div className="feed-grid">
+                      {filtered.map((puppy, i) => (
+                        <PuppyCard key={puppy.id} puppy={puppy} index={i} variant="feed" />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                      {filtered.map((puppy, i) => (
+                        <PuppyCard key={puppy.id} puppy={puppy} index={i} variant="grid" />
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center py-20"
+                >
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-cream)] flex items-center justify-center">
+                    <Heart size={24} className="text-[var(--color-text-muted)]" />
                   </div>
-                ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {filtered.map((puppy, i) => (
-                      <PuppyCard key={puppy.id} puppy={puppy} index={i} variant="grid" />
-                    ))}
-                  </div>
-                )}
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-20"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--color-cream)] flex items-center justify-center">
-                  <Heart size={24} className="text-[var(--color-text-muted)]" />
-                </div>
-                <p className="text-lg text-[var(--color-text-muted)] mb-4">
-                  Aucun chiot ne correspond à vos critères.
-                </p>
-                <Link href="/contact" className="btn-outline">
-                  Rejoindre la Liste d&apos;Attente
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                  <p className="text-lg text-[var(--color-text-muted)] mb-4">
+                    Aucun chiot ne correspond à vos critères.
+                  </p>
+                  <Link href="/contact" className="btn-outline">
+                    Rejoindre la Liste d&apos;Attente
+                  </Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          )}
         </div>
       </section>
 
@@ -233,19 +327,19 @@ export default function PuppiesPage() {
               <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Investissement sur Demande
+              Tarifs sur demande
             </h2>
-            <p className="text-white/50 max-w-xl mx-auto leading-relaxed mb-10">
-              L&apos;investissement pour accueillir un compagnon Pet&apos;s Club Maroc varie selon la race,
-              la lignée et le potentiel de chaque chiot. Nous préférons échanger personnellement avec chaque
-              famille pour comprendre vos attentes.
+            <p className="text-white/75 max-w-xl mx-auto leading-relaxed mb-10">
+              Le prix dépend de la race, de la lignée et du profil de chaque chiot.
+              Nous préférons en discuter directement avec vous plutôt que d&apos;afficher un chiffre
+              qui ne tiendrait pas compte de vos attentes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-gold">
-                Demander un Renseignement
+                Nous contacter pour les tarifs
               </Link>
               <Link href="/contact" className="btn-outline border-white/20 text-white/80 hover:bg-white/5 hover:border-white/40 hover:text-white">
-                Planifier un Appel Vidéo
+                Planifier un appel vidéo
               </Link>
             </div>
           </motion.div>

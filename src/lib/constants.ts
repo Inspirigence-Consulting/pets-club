@@ -1,8 +1,8 @@
 export const SITE_NAME = "Pet's Club Maroc";
-export const SITE_DESCRIPTION = "Élevage premium et éthique de Spitz Nain (Pomeranian) et Berger Australien au Maroc";
+export const SITE_DESCRIPTION = "Éleveur de Spitz Nain (Pomeranian) et Berger Australien au Maroc — lignées championnes, suivi vétérinaire complet et accompagnement personnalisé à vie";
 export const WHATSAPP_NUMBER = "+212653214751";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}`;
-export const INSTAGRAM_URL = "https://instagram.com/thepetsclubmaroc";
+export const INSTAGRAM_URL = "https://www.instagram.com/thepetsclubmaroc/";
 export const FACEBOOK_URL = "https://facebook.com/thepetsclubmaroc";
 
 export interface NavLink {
@@ -30,31 +30,31 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const TRUST_BADGES = [
-  { number: "200+", label: "Familles heureuses" },
-  { number: "15+", label: "Années d'expérience" },
-  { number: "100%", label: "Garantie santé" },
-  { number: "50+", label: "Champions en lignée" },
+  { number: "200+", label: "Familles nous font confiance" },
+  { number: "15+", label: "Ans de savoir-faire" },
+  { number: "100%", label: "Chiots garantis en santé" },
+  { number: "50+", label: "Titres de champions" },
 ] as const;
 
 export const DIFFERENTIATORS = [
   {
-    title: "Lignées Champions",
-    description: "Nos reproducteurs sont issus de lignées championnes internationales, garantissant beauté et tempérament d'exception.",
+    title: "Des lignées qui parlent d'elles-mêmes",
+    description: "Nos reproducteurs portent des titres de champions internationaux. Chaque portée hérite d'un patrimoine génétique sélectionné pour la santé, la beauté et l'équilibre du tempérament.",
     icon: "trophy",
   },
   {
-    title: "Suivi Vétérinaire",
-    description: "Chaque chiot bénéficie d'un suivi vétérinaire complet, vaccinations, puces et tests génétiques.",
+    title: "Un suivi vétérinaire sans compromis",
+    description: "Vaccinations à jour, puce électronique, tests génétiques des parents et certificat de santé : chaque chiot quitte notre élevage avec un dossier médical complet.",
     icon: "heart",
   },
   {
-    title: "Socialisation Premium",
-    description: "Programme de socialisation de 10 semaines pour un compagnon équilibré et bien adapté à sa nouvelle famille.",
+    title: "10 semaines de socialisation",
+    description: "Avant de rejoindre votre foyer, chaque chiot vit 10 semaines de stimulation, de jeux et de contacts humains. Résultat : un compagnon confiant et bien dans ses pattes.",
     icon: "users",
   },
   {
-    title: "Accompagnement à Vie",
-    description: "Notre relation ne s'arrête pas à l'adoption. Nous restons disponibles pour vous guider tout au long de la vie de votre compagnon.",
+    title: "On reste là, même après l'adoption",
+    description: "Questions sur la nutrition, le comportement, la santé ? Nous restons joignables par WhatsApp, par téléphone ou en personne — aussi longtemps que votre compagnon vivra.",
     icon: "shield",
   },
 ] as const;
@@ -64,8 +64,8 @@ export const BREEDS = {
     name: "Spitz Nain",
     nameEn: "Pomeranian",
     slug: "pomeranian",
-    tagline: "Le Spitz Nain, c'est l'élégance dans un format compact...",
-    description: "Petit par la taille, immense par le caractère. Le Spitz Nain séduit par son pelage soyeux, son regard vif et son attachement inconditionnel à sa famille.",
+    tagline: "Une boule d'énergie au pelage de soie, un caractère bien trempé dans un format de poche.",
+    description: "Ne vous fiez pas à sa petite taille : le Spitz Nain a le tempérament d'un grand chien. Joueur, fidèle et débordant d'affection, il s'adapte aussi bien à un appartement qu'à une maison avec jardin. Son pelage épais et son regard pétillant font le reste.",
     bloodlines: ["Teddy Bear", "Standard"],
     characteristics: [
       { label: "Poids", value: "1.8 - 3.5 kg" },
@@ -78,8 +78,8 @@ export const BREEDS = {
     name: "Berger Australien",
     nameEn: "Australian Shepherd",
     slug: "berger-australien",
-    tagline: "Le Berger Australien incarne l'intelligence, la grâce et la loyauté...",
-    description: "Athlétique, intelligent et d'une beauté saisissante, le Berger Australien est le compagnon idéal pour les familles actives qui recherchent un lien profond avec leur animal.",
+    tagline: "Athlète, penseur, compagnon de vie — le Berger Australien ne fait jamais les choses à moitié.",
+    description: "Si vous cherchez un chien qui vous suit partout — randonnée, course, canapé compris — le Berger Australien est fait pour vous. Vif d'esprit, athlétique et d'une loyauté rare, il tisse un lien profond avec sa famille. Sa beauté saisissante et ses yeux souvent vairons ne font qu'ajouter au tableau.",
     bloodlines: ["Working Line", "Beauty Line"],
     characteristics: [
       { label: "Poids", value: "18 - 30 kg" },
@@ -94,35 +94,35 @@ export const TESTIMONIALS = [
   {
     name: "Sophie & Marc L.",
     location: "Casablanca",
-    text: "Notre petit Luna est arrivée parfaitement socialisée et en pleine santé. L'accompagnement de Pet's Club Maroc a été exceptionnel du premier contact jusqu'à aujourd'hui.",
+    text: "Luna est arrivée chez nous à 10 semaines, propre, sociable et pleine de vie. On a senti dès le premier appel que l'équipe connaissait chaque chiot par son nom. Aujourd'hui encore, ils répondent à nos questions sur WhatsApp.",
     breed: "Spitz Nain",
     rating: 5,
   },
   {
     name: "Famille Benkirane",
     location: "Rabat",
-    text: "Atlas, notre Berger Australien, fait le bonheur de toute la famille. Le professionnalisme et l'éthique de l'élevage nous ont convaincus dès la première visite.",
+    text: "Quand on a visité l'élevage, les chiens vivaient dans le salon, pas dans des cages. Ça a tout changé pour nous. Atlas est devenu le meilleur ami de nos enfants en moins d'une semaine.",
     breed: "Berger Australien",
     rating: 5,
   },
   {
     name: "Isabelle D.",
     location: "Marrakech",
-    text: "Troisième adoption chez Pet's Club et toujours la même qualité, le même amour. Ils sont véritablement passionnés par le bien-être de chaque compagnon.",
+    text: "C'est ma troisième adoption chez Pet's Club. À chaque fois, le même sérieux, le même carnet de santé complet, le même suivi après l'adoption. Je ne cherche plus ailleurs.",
     breed: "Spitz Nain",
     rating: 5,
   },
   {
     name: "Karim & Leila M.",
     location: "Tanger",
-    text: "Nous avons été impressionnés par le suivi vétérinaire impeccable et la transparence totale. Notre Pomeranian est un vrai petit prince, en parfaite santé.",
+    text: "On nous a montré les résultats des tests génétiques des deux parents avant même qu'on pose la question. Ce niveau de transparence, on ne l'avait trouvé nulle part au Maroc.",
     breed: "Spitz Nain",
     rating: 5,
   },
   {
     name: "Famille Alaoui",
     location: "Fès",
-    text: "Le processus d'adoption a été fluide et rassurant. L'équipe nous a guidés à chaque étape, de la réservation jusqu'à l'intégration à la maison. Un service 5 étoiles.",
+    text: "De la première vidéo du chiot jusqu'au jour où on l'a récupéré, tout était cadré. Le kit de démarrage, le guide de nutrition, le rendez-vous vétérinaire déjà planifié. On s'est sentis accompagnés, pas livrés à nous-mêmes.",
     breed: "Berger Australien",
     rating: 5,
   },
@@ -130,28 +130,28 @@ export const TESTIMONIALS = [
 
 export const FAQ_ITEMS = [
   {
-    question: "Comment réserver un chiot ?",
-    answer: "La réservation se fait en plusieurs étapes : contactez-nous pour discuter de vos attentes, planifiez une visite ou un appel vidéo, puis confirmez votre réservation. Nous prenons le temps de nous assurer que chaque compagnon rejoint la famille idéale.",
+    question: "Comment se passe la réservation d'un chiot ?",
+    answer: "Tout commence par un échange — par WhatsApp, téléphone ou email — pour comprendre votre mode de vie et vos attentes. Ensuite, nous organisons une visite de l'élevage ou un appel vidéo pour vous présenter les chiots. Si le courant passe des deux côtés, la réservation est confirmée avec un acompte. Nous choisissons autant nos familles que vous choisissez votre compagnon.",
   },
   {
-    question: "Quel est l'investissement pour accueillir un compagnon ?",
-    answer: "L'investissement varie selon la race, la lignée et le potentiel de chaque chiot. Nous vous invitons à nous contacter directement pour une discussion personnalisée. Chaque compagnon part avec un dossier santé complet, ses vaccinations, sa puce électronique et un kit de démarrage.",
+    question: "Combien coûte un chiot Pet's Club Maroc ?",
+    answer: "Le montant dépend de la race, de la lignée et du profil de chaque chiot. Plutôt que d'afficher un prix en ligne, nous préférons en discuter avec vous directement. Chaque chiot part avec son carnet de vaccination à jour, sa puce électronique, son certificat de santé, les résultats génétiques des parents et un kit de démarrage complet.",
   },
   {
-    question: "Les chiots sont-ils vaccinés et pucés ?",
-    answer: "Absolument. Chaque chiot quitte notre élevage avec un carnet de vaccination à jour, une puce électronique enregistrée, un certificat de santé vétérinaire et les résultats des tests génétiques des parents.",
+    question: "Les chiots sont-ils vaccinés et pucés avant le départ ?",
+    answer: "Oui, sans exception. Chaque chiot quitte notre élevage avec un carnet de vaccination à jour, une puce électronique enregistrée à votre nom, un certificat de santé délivré par notre vétérinaire partenaire et les résultats des tests génétiques de ses parents.",
   },
   {
-    question: "Proposez-vous la livraison à l'étranger ?",
-    answer: "Oui, nous accompagnons les familles internationales dans toutes les démarches d'exportation. Nous travaillons avec des transporteurs animaliers certifiés pour garantir un voyage sûr et confortable pour votre compagnon.",
+    question: "Vous livrez en dehors du Maroc ?",
+    answer: "Oui. Nous avons déjà accompagné des familles en Europe, dans le Golfe et en Amérique du Nord. Nous gérons les démarches administratives d'exportation et travaillons avec des transporteurs animaliers certifiés pour que le voyage se passe en toute sécurité.",
   },
   {
-    question: "À quel âge les chiots peuvent-ils rejoindre leur famille ?",
-    answer: "Nos chiots restent avec leur mère et leurs frères et sœurs pendant 10 semaines minimum. Cette période est essentielle pour leur développement émotionnel et leur socialisation. C'est notre engagement pour le bien-être de chaque compagnon.",
+    question: "À quel âge un chiot peut-il quitter l'élevage ?",
+    answer: "Jamais avant 10 semaines. Ces premières semaines avec la mère et la fratrie sont déterminantes pour le développement émotionnel et social du chiot. Un chiot bien socialisé dès le départ, c'est un compagnon plus serein et mieux adapté à la vie de famille.",
   },
   {
-    question: "Comment se passe le suivi après adoption ?",
-    answer: "Notre relation ne s'arrête jamais. Vous bénéficiez d'un accompagnement personnalisé à vie : conseils nutrition, comportement, santé. Nous restons disponibles par WhatsApp, téléphone ou en personne.",
+    question: "Que se passe-t-il après l'adoption ?",
+    answer: "On ne vous laisse pas seul. Vous gardez un accès direct à notre équipe — par WhatsApp, téléphone ou en personne — pour toute question sur la nutrition, le comportement ou la santé. Pas de date d'expiration : cet accompagnement dure toute la vie de votre compagnon.",
   },
 ] as const;
 

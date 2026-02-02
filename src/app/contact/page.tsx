@@ -40,16 +40,16 @@ export default function ContactPage() {
             transition={{ delay: 0.2 }}
             className="font-[var(--font-heading)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
           >
-            Contactez-<span className="text-gradient-gold italic">Nous</span>
+            Parlons de votre <span className="text-gradient-gold italic">futur compagnon</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg text-white/50 max-w-xl mx-auto leading-relaxed"
+            className="text-lg text-white/75 max-w-xl mx-auto leading-relaxed"
           >
-            Une question, une demande de réservation ou envie de planifier une visite ?
-            Nous sommes à votre écoute.
+            Réservation, visite de l&apos;élevage, renseignement sur une race ou un chiot en particulier :
+            nous répondons sous 24 h.
           </motion.p>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function ContactPage() {
               className="lg:col-span-2"
             >
               <h2 className="font-[var(--font-heading)] text-2xl font-bold text-[var(--color-charcoal)] mb-8">
-                Nos Coordonnées
+                Comment nous joindre
               </h2>
 
               <div className="space-y-8">
@@ -77,47 +77,46 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 bg-[#25D366]/10 flex items-center justify-center shrink-0 group-hover:bg-[#25D366]/20 transition-colors">
+                  <div className="w-12 h-12 bg-[#25D366]/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#25D366]/20 transition-colors">
                     <Phone size={20} className="text-[#25D366]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[var(--color-charcoal)] mb-1">WhatsApp</h3>
-                    <p className="text-sm text-[var(--color-text-light)]">+212 6 00 00 00 00</p>
+                    <p className="text-sm text-[var(--color-text-light)]">+212 6 53 21 47 51</p>
                     <p className="text-xs text-[var(--color-gold)]">Réponse sous 24h</p>
                   </div>
                 </a>
 
                 {/* Email */}
                 <a
-                  href="mailto:contact@petsclubmaroc.com"
+                  href="mailto:thepetsclubma@gmail.com"
                   className="flex items-start gap-4 group"
                 >
-                  <div className="w-12 h-12 bg-[var(--color-gold)]/10 flex items-center justify-center shrink-0 group-hover:bg-[var(--color-gold)]/20 transition-colors">
+                  <div className="w-12 h-12 bg-[var(--color-gold)]/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[var(--color-gold)]/20 transition-colors">
                     <Mail size={20} className="text-[var(--color-gold)]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[var(--color-charcoal)] mb-1">Email</h3>
-                    <p className="text-sm text-[var(--color-text-light)]">contact@petsclubmaroc.com</p>
+                    <p className="text-sm text-[var(--color-text-light)]">thepetsclubma@gmail.com</p>
                   </div>
                 </a>
 
                 {/* Location */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-[var(--color-primary)]/10 rounded-xl flex items-center justify-center shrink-0">
                     <MapPin size={20} className="text-[var(--color-primary)]" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-[var(--color-charcoal)] mb-1">Adresse</h3>
                     <p className="text-sm text-[var(--color-text-light)]">
-                      Casablanca, Maroc<br />
-                      (Adresse exacte communiquée lors de la prise de rendez-vous)
+                      8 Avenue Oqba - Agdal, Rabat
                     </p>
                   </div>
                 </div>
 
                 {/* Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-[var(--color-accent-sage)]/10 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 bg-[var(--color-accent-sage)]/10 rounded-xl flex items-center justify-center shrink-0">
                     <Clock size={20} className="text-[var(--color-accent-sage)]" />
                   </div>
                   <div>
@@ -131,9 +130,17 @@ export default function ContactPage() {
               </div>
 
               {/* Map placeholder */}
-              <div className="mt-8 aspect-[4/3] bg-[var(--color-cream)] flex items-center justify-center">
-                <p className="text-sm text-[var(--color-text-muted)]">Carte interactive</p>
-              </div>
+              <a
+                href="https://maps.google.com/?q=8+Avenue+Oqba,+Agdal,+Rabat,+Maroc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 aspect-[4/3] bg-[var(--color-cream)] rounded-2xl flex flex-col items-center justify-center gap-3 group hover:bg-[var(--color-cream-dark)] transition-colors"
+              >
+                <MapPin size={32} className="text-[var(--color-gold)] group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium text-[var(--color-text-light)] group-hover:text-[var(--color-primary)] transition-colors">
+                  Voir sur Google Maps
+                </span>
+              </a>
             </motion.div>
 
             {/* Form */}
@@ -143,12 +150,12 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="lg:col-span-3"
             >
-              <div className="bg-white p-8 md:p-10 border border-[var(--color-cream-dark)]">
+              <div className="bg-white p-8 md:p-10 border border-[var(--color-cream-dark)] rounded-2xl">
                 <h2 className="font-[var(--font-heading)] text-2xl font-bold text-[var(--color-charcoal)] mb-2">
-                  Envoyez-Nous un Message
+                  Écrivez-nous
                 </h2>
                 <p className="text-sm text-[var(--color-text-light)] mb-8">
-                  Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.
+                  Décrivez votre projet et nous reviendrons vers vous sous 24 h.
                 </p>
                 <ContactForm />
               </div>
@@ -165,7 +172,7 @@ export default function ContactPage() {
               FAQ
             </span>
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-[var(--color-charcoal)]">
-              Questions Fréquentes
+              Les questions qu&apos;on nous pose le plus
             </h2>
             <div className="divider-gold mx-auto mt-6" />
           </div>
@@ -178,7 +185,7 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white border border-[var(--color-cream-dark)]"
+                className="bg-white border border-[var(--color-cream-dark)] rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -226,10 +233,10 @@ export default function ContactPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-6">
-              Préférez-Vous Nous Appeler ?
+              Vous préférez discuter de vive voix ?
             </h2>
-            <p className="text-white/60 mb-8 max-w-md mx-auto">
-              Nous sommes disponibles sur WhatsApp pour répondre à toutes vos questions en temps réel.
+            <p className="text-white/75 mb-8 max-w-md mx-auto">
+              Envoyez-nous un message sur WhatsApp. Nous sommes disponibles du lundi au samedi, de 9 h à 18 h.
             </p>
             <a
               href={WHATSAPP_URL}

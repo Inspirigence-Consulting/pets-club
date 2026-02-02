@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/galerie',
     '/communaute',
     '/contact',
+    '/marketplace',
   ];
 
   const puppyPages = mockPuppies.map((puppy) => ({

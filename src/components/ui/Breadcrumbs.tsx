@@ -22,7 +22,7 @@ export default function Breadcrumbs({ items, light = false }: BreadcrumbsProps) 
             href="/"
             className={`flex items-center gap-1 transition-colors ${
               light
-                ? 'text-white/50 hover:text-white/80'
+                ? 'text-white/65 hover:text-white/90'
                 : 'text-[var(--color-text-muted)] hover:text-[var(--color-gold)]'
             }`}
           >
@@ -34,14 +34,14 @@ export default function Breadcrumbs({ items, light = false }: BreadcrumbsProps) 
           <li key={i} className="flex items-center gap-1">
             <ChevronRight
               size={12}
-              className={light ? 'text-white/30' : 'text-[var(--color-text-muted)]'}
+              className={light ? 'text-white/45' : 'text-[var(--color-text-muted)]'}
             />
             {item.href && i < items.length - 1 ? (
               <Link
                 href={item.href}
                 className={`transition-colors ${
                   light
-                    ? 'text-white/50 hover:text-white/80'
+                    ? 'text-white/65 hover:text-white/90'
                     : 'text-[var(--color-text-muted)] hover:text-[var(--color-gold)]'
                 }`}
               >

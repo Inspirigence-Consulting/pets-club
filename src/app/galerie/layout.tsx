@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Galerie',
+  title: 'Galerie — Photos de nos Spitz Nain, Bergers Australiens et familles',
   description:
-    "Galerie photos de Pet's Club Maroc : nos champions, familles heureuses, coulisses de l'élevage et moments de vie partagés.",
+    "Découvrez en photos nos chiots Spitz Nain et Berger Australien, nos champions titrés, les familles qui nous font confiance et les coulisses de l'élevage Pet's Club Maroc.",
   openGraph: {
-    title: "Galerie | Pet's Club Maroc",
+    title: "Galerie photos | Pet's Club Maroc",
     description:
-      "Champions, familles heureuses et coulisses de notre élevage en images.",
+      "Nos chiots, nos champions et nos familles en images. Découvrez les coulisses de Pet's Club Maroc.",
   },
 };
 

@@ -1,20 +1,50 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
+import { FAQ_ITEMS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact — Réserver un chiot Spitz Nain ou Berger Australien au Maroc',
   description:
-    "Contactez Pet's Club Maroc pour réserver un chiot, planifier une visite ou poser vos questions. Réponse sous 24h.",
+    "Contactez Pet's Club Maroc par WhatsApp, email ou formulaire. Réservation de chiots, visite de l'élevage, appel vidéo. Réponse sous 24 h.",
   openGraph: {
-    title: "Contact | Pet's Club Maroc",
+    title: "Contactez-nous | Pet's Club Maroc",
     description:
-      "Une question, une demande de réservation ou envie de planifier une visite ? Nous sommes à votre écoute.",
+      "Réservez un chiot, planifiez une visite ou posez vos questions. Nous répondons sous 24 h.",
   },
 };
+
+function FAQSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_ITEMS.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
+  return (
+    <Script
+      id="faq-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
 
 export default function ContactLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <>
+      <FAQSchema />
+      {children}
+    </>
+  );
 }

@@ -21,7 +21,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative p-10 md:p-14 border border-[var(--color-gold)]/10 bg-white/[0.02] backdrop-blur-sm text-center mb-16"
+          className="relative p-10 md:p-14 border border-[var(--color-gold)]/10 bg-white/[0.02] backdrop-blur-sm text-center mb-16 rounded-2xl"
         >
           <div className="absolute top-0 left-0 w-12 h-[1px] bg-[var(--color-gold)]/40" />
           <div className="absolute top-0 left-0 w-[1px] h-12 bg-[var(--color-gold)]/40" />
@@ -29,10 +29,10 @@ export default function Footer() {
           <div className="absolute bottom-0 right-0 w-[1px] h-12 bg-[var(--color-gold)]/40" />
 
           <h3 className="font-[var(--font-heading)] text-2xl md:text-3xl font-bold text-white mb-4">
-            Prêt à Accueillir Votre Compagnon ?
+            Prêt à rencontrer votre futur compagnon ?
           </h3>
-          <p className="text-white/50 mb-8 max-w-md mx-auto">
-            Prenez contact avec nous pour découvrir nos chiots disponibles et planifier votre visite.
+          <p className="text-white/75 mb-8 max-w-md mx-auto">
+            Consultez nos chiots disponibles ou écrivez-nous pour organiser une visite de l&apos;élevage.
           </p>
           <Link
             href="/contact"
@@ -58,9 +58,9 @@ export default function Footer() {
                 Maroc
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-white/40 mb-8">
-              Élevage premium et éthique de Spitz Nain et Berger Australien.
-              Des compagnons d&apos;exception, élevés avec amour au Maroc.
+            <p className="text-sm leading-relaxed text-white/70 mb-8">
+              Éleveur de Spitz Nain et Berger Australien au Maroc depuis 2010.
+              Lignées championnes, chiots socialisés en famille, accompagnement à vie.
             </p>
             <div className="flex gap-3">
               {[
@@ -73,7 +73,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:border-[var(--color-gold)]/50 hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/[0.05] transition-all duration-500"
+                  className="w-10 h-10 flex items-center justify-center border border-white/15 text-white/70 hover:border-[var(--color-gold)]/50 hover:text-[var(--color-gold)] hover:bg-[var(--color-gold)]/[0.05] transition-all duration-500"
                   aria-label={label}
                 >
                   <Icon size={16} strokeWidth={1.5} />
@@ -92,7 +92,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/40 hover:text-[var(--color-gold-light)] hover:translate-x-1 inline-block transition-all duration-300"
+                    className="text-sm text-white/70 hover:text-[var(--color-gold-light)] hover:translate-x-1 inline-block transition-all duration-300"
                   >
                     {link.label}
                   </Link>
@@ -116,7 +116,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-white/40 hover:text-[var(--color-gold-light)] hover:translate-x-1 inline-block transition-all duration-300"
+                    className="text-sm text-white/70 hover:text-[var(--color-gold-light)] hover:translate-x-1 inline-block transition-all duration-300"
                   >
                     {label}
                   </Link>
@@ -133,7 +133,7 @@ export default function Footer() {
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <MapPin size={14} className="text-[var(--color-gold)]/60 mt-1 shrink-0" />
-                <span className="text-sm text-white/40">
+                <span className="text-sm text-white/70">
                   8 Avenue Oqba - Agdal, Rabat
                 </span>
               </li>
@@ -143,7 +143,7 @@ export default function Footer() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white/40 hover:text-[var(--color-gold-light)] transition-colors"
+                  className="text-sm text-white/70 hover:text-[var(--color-gold-light)] transition-colors"
                 >
                   +212 6 53 21 47 51
                 </a>
@@ -152,7 +152,7 @@ export default function Footer() {
                 <Mail size={14} className="text-[var(--color-gold)]/60 mt-1 shrink-0" />
                 <a
                   href="mailto:thepetsclubma@gmail.com"
-                  className="text-sm text-white/40 hover:text-[var(--color-gold-light)] transition-colors"
+                  className="text-sm text-white/70 hover:text-[var(--color-gold-light)] transition-colors"
                 >
                   thepetsclubma@gmail.com
                 </a>
@@ -165,14 +165,22 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/[0.06]">
         <div className="container-luxury py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/25">
-            &copy; {new Date().getFullYear()} {SITE_NAME}. Tous droits réservés.
+          <p className="text-xs text-white/55">
+            &copy; {new Date().getFullYear()} {SITE_NAME}. Tous droits réservés. — Website réalisé par{' '}
+            <a
+              href="https://inspirigence-consulting.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-[var(--color-gold)] transition-colors"
+            >
+              Inspirigence
+            </a>
           </p>
-          <div className="flex gap-8 text-xs text-white/25">
-            <Link href="#" className="hover:text-white/50 transition-colors">
+          <div className="flex gap-8 text-xs text-white/55">
+            <Link href="/mentions-legales" className="hover:text-white/70 transition-colors">
               Mentions Légales
             </Link>
-            <Link href="#" className="hover:text-white/50 transition-colors">
+            <Link href="/politique-confidentialite" className="hover:text-white/70 transition-colors">
               Politique de Confidentialité
             </Link>
           </div>

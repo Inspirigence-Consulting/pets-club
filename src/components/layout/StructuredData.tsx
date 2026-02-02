@@ -10,18 +10,19 @@ export function OrganizationSchema() {
     logo: 'https://petsclubmaroc.com/images/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+212600000000',
+      telephone: '+212653214751',
       contactType: 'customer service',
       availableLanguage: ['French', 'English', 'Arabic', 'Spanish'],
     },
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Casablanca',
+      streetAddress: '8 Avenue Oqba - Agdal',
+      addressLocality: 'Rabat',
       addressCountry: 'MA',
     },
     sameAs: [
-      'https://instagram.com/petsclubmaroc',
-      'https://facebook.com/petsclubmaroc',
+      'https://instagram.com/thepetsclubmaroc',
+      'https://facebook.com/thepetsclubmaroc',
     ],
   };
 
@@ -42,20 +43,16 @@ export function LocalBusinessSchema() {
     name: "Pet's Club Maroc",
     description: "Élevage premium et éthique de Spitz Nain (Pomeranian) et Berger Australien au Maroc",
     url: 'https://petsclubmaroc.com',
-    telephone: '+212600000000',
+    telephone: '+212653214751',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Casablanca',
+      streetAddress: '8 Avenue Oqba - Agdal',
+      addressLocality: 'Rabat',
       addressCountry: 'MA',
     },
     openingHours: ['Mo-Sa 09:00-18:00'],
     priceRange: '$$$',
     image: 'https://res.cloudinary.com/dlugprv1v/image/upload/w_1200,q_auto,f_auto/visual-showcase/after_WhatsApp%20Image%202026-01-28%20at%2017.25.03',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '200',
-    },
   };
 
   return (

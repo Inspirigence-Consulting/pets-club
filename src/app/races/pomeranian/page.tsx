@@ -34,7 +34,7 @@ export default function PomeranianPage() {
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/20 to-transparent" />
 
         <div className="container-luxury relative z-10">
-          <Breadcrumbs items={[{ label: 'Nos Races', href: '/#races' }, { label: 'Spitz Nain' }]} light />
+          <Breadcrumbs items={[{ label: 'Nos Races', href: '#' }, { label: 'Spitz Nain (Pomeranian)' }]} light />
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0 }}
@@ -58,7 +58,7 @@ export default function PomeranianPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-white/50 italic leading-relaxed"
+              className="text-lg text-white/75 italic leading-relaxed"
             >
               {breed.tagline}
             </motion.p>
@@ -88,7 +88,7 @@ export default function PomeranianPage() {
               viewport={{ once: true }}
             >
               <h2 className="font-[var(--font-heading)] text-3xl font-bold text-[var(--color-charcoal)] mb-6">
-                Le Spitz Nain, c&apos;est l&apos;élégance dans un format compact
+                Petit chien, grande personnalité
               </h2>
               <p className="text-[var(--color-text-light)] leading-relaxed mb-8">
                 {breed.description}
@@ -117,20 +117,20 @@ export default function PomeranianPage() {
         <div className="container-luxury">
           <SectionHeading
             subtitle="Nos Lignées"
-            title="Teddy Bear & Standard"
-            description="Nous élevons deux types de Spitz Nain, chacun avec ses qualités uniques et son charme distinctif."
+            title="Teddy Bear ou Standard : deux styles, un même soin"
+            description="Selon vos préférences, nous proposons deux types de Spitz Nain. Les deux bénéficient du même programme de socialisation et du même suivi santé."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
                 name: 'Teddy Bear',
-                desc: 'Un museau court, un visage rond comme une peluche. Le Teddy Bear est la quintessence de la mignonnerie avec son expression douce et ses traits ronds qui font fondre les cœurs.',
+                desc: 'Museau court, visage rond, pelage dense : le Teddy Bear ressemble à une peluche vivante. Son expression douce et ses yeux ronds font fondre les familles dès le premier regard.',
                 traits: ['Museau court', 'Visage rond', 'Pelage dense', 'Expression douce'],
               },
               {
                 name: 'Standard',
-                desc: 'Le Spitz Nain classique dans toute sa splendeur. Un museau plus allongé, une allure fière et un port de tête élégant qui rappelle ses origines royales.',
+                desc: 'Le Spitz Nain dans sa forme classique. Un museau plus allongé, un port de tête fier et une silhouette racée qui rappelle ses origines de chien de compagnie des cours royales européennes.',
                 traits: ['Museau classique', 'Port noble', 'Silhouette élégante', 'Regard vif'],
               },
             ].map((line, i) => (
@@ -193,10 +193,10 @@ export default function PomeranianPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-6">
-              Le Spitz Nain Vous Fait Craquer ?
+              Vous craquez pour le Spitz Nain ?
             </h2>
-            <p className="text-white/60 mb-8 max-w-md mx-auto">
-              Contactez-nous pour en savoir plus sur nos chiots disponibles ou rejoignez notre liste d&apos;attente.
+            <p className="text-white/75 mb-8 max-w-md mx-auto">
+              Consultez nos chiots disponibles ou inscrivez-vous sur la liste d&apos;attente pour être prévenu des prochaines naissances.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-gold">

@@ -42,7 +42,7 @@ export default function TrustBadges() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white/80 backdrop-blur-xl shadow-[0_8px_60px_rgba(0,0,0,0.08)] border border-[var(--color-gold)]/10"
+          className="bg-white/80 backdrop-blur-xl shadow-[0_8px_60px_rgba(0,0,0,0.08)] border border-[var(--color-gold)]/10 rounded-2xl"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4">
             {TRUST_BADGES.map((badge, i) => {
@@ -62,7 +62,7 @@ export default function TrustBadges() {
                   <span className="block font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-[var(--color-gold)] mb-2">
                     <AnimatedNumber value={badge.number} />
                   </span>
-                  <span className="text-xs tracking-[0.1em] uppercase text-[var(--color-text-muted)]">
+                  <span className="text-xs tracking-[0.1em] uppercase text-[var(--color-text-light)]">
                     {badge.label}
                   </span>
                 </motion.div>

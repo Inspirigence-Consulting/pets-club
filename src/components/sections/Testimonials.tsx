@@ -88,7 +88,7 @@ function TestimonialSlide({
           <div className="relative z-10">
             {/* Quote icon */}
             <div className="mb-6">
-              <Quote size={36} className="text-white/20" strokeWidth={1} />
+              <Quote size={36} className="text-white/30" strokeWidth={1} />
             </div>
 
             {/* Stars */}
@@ -123,7 +123,7 @@ function TestimonialSlide({
                 >
                   {testimonial.name}
                 </p>
-                <p className="text-white/40 text-xs mt-0.5">
+                <p className="text-white/65 text-xs mt-0.5">
                   {testimonial.location} &middot;{' '}
                   <span className="text-amber-400/70">{testimonial.breed}</span>
                 </p>
@@ -235,7 +235,7 @@ export default function Testimonials() {
           >
             <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-white/30" />
             <span
-              className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/50"
+              className="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Témoignages
@@ -247,9 +247,9 @@ export default function Testimonials() {
             className="text-3xl md:text-4xl lg:text-[42px] font-black text-white uppercase leading-tight"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Ce que disent
+            Ils nous ont
             <br />
-            <span className="text-white/40">nos familles</span>
+            <span className="text-white/55">fait confiance</span>
           </h2>
         </motion.div>
 
@@ -269,7 +269,7 @@ export default function Testimonials() {
         </div>
 
         {/* Swipe hint (mobile only) */}
-        <p className="text-center text-white/20 text-xs mt-2 md:hidden">
+        <p className="text-center text-white/50 text-xs mt-2 md:hidden">
           Glissez pour voir plus
         </p>
 
@@ -284,7 +284,7 @@ export default function Testimonials() {
           {/* Prev button */}
           <button
             onClick={() => paginate(-1)}
-            className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+            className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/55 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
             aria-label="Témoignage précédent"
           >
             <ChevronLeft size={18} />
@@ -328,7 +328,7 @@ export default function Testimonials() {
           {/* Next button */}
           <button
             onClick={() => paginate(1)}
-            className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
+            className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/55 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-300"
             aria-label="Témoignage suivant"
           >
             <ChevronRight size={18} />
@@ -344,18 +344,18 @@ export default function Testimonials() {
           className="mt-16 flex items-center justify-center gap-8 md:gap-16"
         >
           {[
-            { value: '200+', label: 'Familles heureuses' },
+            { value: '200+', label: 'Familles accompagnées' },
             { value: '5.0', label: 'Note moyenne' },
-            { value: '100%', label: 'Recommandent' },
+            { value: '100%', label: 'Nous recommandent' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p
-                className="text-2xl md:text-3xl font-black text-white/80"
+                className="text-2xl md:text-3xl font-black text-white/90"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {stat.value}
               </p>
-              <p className="text-[11px] text-white/30 mt-1 uppercase tracking-wider">
+              <p className="text-[11px] text-white/60 mt-1 uppercase tracking-wider">
                 {stat.label}
               </p>
             </div>

@@ -26,11 +26,11 @@ export default function FeaturedPuppies() {
               </span>
             </div>
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-charcoal)] mb-4">
-              Compagnons Disponibles
+              Chiots disponibles
             </h2>
             <p className="text-[var(--color-text-light)] max-w-lg leading-relaxed">
-              Découvrez nos chiots actuellement disponibles, tous issus de lignées
-              championnes et élevés avec le plus grand soin.
+              Chaque chiot grandit chez nous pendant 10 semaines, entouré de sa mère et de sa fratrie.
+              Voici ceux qui sont prêts à rejoindre leur nouvelle famille.
             </p>
           </div>
           <Link
@@ -56,7 +56,7 @@ export default function FeaturedPuppies() {
           className="text-center mt-14"
         >
           <Link href="/chiots" className="btn-gold inline-flex items-center gap-2">
-            Explorer Tous Nos Chiots
+            Voir tous les chiots
             <ArrowRight size={16} />
           </Link>
         </motion.div>

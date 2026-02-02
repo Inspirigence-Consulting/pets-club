@@ -3,13 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Instagram, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { INSTAGRAM_URL } from '@/lib/constants';
 
 const NAV_ITEMS = [
-  { label: 'Accueil', href: '/' },
-  { label: 'Notre Histoire', href: '/a-propos' },
+  { label: 'Nos Chiots', href: '/chiots' },
   {
     label: 'Nos Races',
     href: '#',
@@ -18,17 +19,21 @@ const NAV_ITEMS = [
       { label: 'Berger Australien', href: '/races/berger-australien' },
     ],
   },
+  { label: 'Marketplace', href: '/marketplace' },
   { label: 'Élevage Éthique', href: '/elevage-ethique' },
   { label: 'Galerie', href: '/galerie' },
-  { label: 'Communauté', href: '/communaute' },
 ];
 
-export default function Header() {
+export default function Header({ solid = false }: { solid?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileSubOpen, setMobileSubOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -59,9 +64,11 @@ export default function Header() {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 h-[88px] flex items-center transition-all duration-500',
-          scrolled
-            ? 'backdrop-blur-[13px] bg-black/70 shadow-[0_2px_20px_rgba(0,0,0,0.3)]'
-            : 'backdrop-blur-[13px] bg-black/40'
+          solid
+            ? 'bg-black shadow-[0_2px_20px_rgba(0,0,0,0.3)]'
+            : scrolled
+              ? 'backdrop-blur-[13px] bg-black/85 shadow-[0_2px_20px_rgba(0,0,0,0.3)]'
+              : 'backdrop-blur-[13px] bg-black/40'
         )}
       >
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-[80px] flex items-center justify-between">
@@ -88,7 +95,7 @@ export default function Header() {
                   onMouseLeave={handleDropdownLeave}
                 >
                   <button
-                    className="nav-link-underline text-[14px] font-semibold text-white/50 hover:text-white transition-colors duration-300 flex items-center gap-1"
+                    className="nav-link-underline text-[14px] font-semibold text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-1"
                   >
                     {item.label}
                     <ChevronDown size={14} className={cn('transition-transform duration-200', dropdownOpen && 'rotate-180')} />
@@ -102,12 +109,12 @@ export default function Header() {
                         transition={{ duration: 0.15 }}
                         className="absolute top-full left-1/2 -translate-x-1/2 pt-3"
                       >
-                        <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl py-2 min-w-[220px] shadow-2xl">
+                        <div className="bg-black/80 backdrop-blur-xl border border-white/15 rounded-xl py-2 min-w-[220px] shadow-2xl">
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-5 py-2.5 text-[13px] font-medium text-white/70 hover:text-white hover:bg-white/5 transition-colors"
+                              className="block px-5 py-2.5 text-[13px] font-medium text-white/80 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               {child.label}
                             </Link>
@@ -121,7 +128,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="nav-link-underline text-[14px] font-semibold text-white/50 hover:text-white transition-colors duration-300"
+                  className={cn('nav-link-underline text-[14px] font-semibold hover:text-white transition-colors duration-300', isActive(item.href) ? 'text-white' : 'text-white/80')}
                 >
                   {item.label}
                 </Link>
@@ -131,10 +138,20 @@ export default function Header() {
 
           {/* Right side: CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/chiots" className="glass-btn text-[13px]">
-              Nos Chiots
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/25 text-white/80 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram size={16} />
+            </a>
+            <Link href="/login" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-[13px] font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(197,165,90,0.4)] hover:-translate-y-0.5 transition-all duration-300">
+              <LogIn size={15} />
+              Se connecter
             </Link>
-            <Link href="/contact" className="glass-btn text-[13px]">
+            <Link href="/contact" className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-white/25 text-white/90 text-[13px] font-semibold tracking-wide hover:bg-white/10 hover:border-white/40 transition-all duration-300">
               Contact
             </Link>
           </div>
@@ -196,7 +213,7 @@ export default function Header() {
                                 key={child.href}
                                 href={child.href}
                                 onClick={() => setIsOpen(false)}
-                                className="block py-2 text-base text-white/50 hover:text-white transition-colors"
+                                className="block py-2 text-base text-white/65 hover:text-white transition-colors"
                               >
                                 {child.label}
                               </Link>
@@ -219,19 +236,29 @@ export default function Header() {
 
               <div className="mt-8 flex flex-col items-center gap-4">
                 <Link
-                  href="/chiots"
+                  href="/login"
                   onClick={() => setIsOpen(false)}
-                  className="glass-btn text-sm px-8"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-sm font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(197,165,90,0.4)] transition-all duration-300"
                 >
-                  Nos Chiots
+                  <LogIn size={16} />
+                  Se connecter
                 </Link>
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="glass-btn text-sm px-8"
+                  className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/30 text-white text-sm font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 transition-all duration-300"
                 >
                   Contact
                 </Link>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors mt-2"
+                >
+                  <Instagram size={18} />
+                  @thepetsclubmaroc
+                </a>
               </div>
             </motion.nav>
           </motion.div>

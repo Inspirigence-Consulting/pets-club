@@ -1,0 +1,417 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============================================================
+// AUTH (NextAuth.js)
+// ============================================================
+
+enum UserRole {
+  ADMIN
+  VENDOR
+  USER
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  phone         String?
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+  vendor        Vendor?
+  favorites     Favorite[]
+  stockMovements StockMovement[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ============================================================
+// ÉLEVAGE — Reproducteurs
+// ============================================================
+
+enum DogStatus {
+  ACTIVE
+  RETIRED
+  DECEASED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+model Dog {
+  id                 String    @id @default(cuid())
+  name               String
+  breed              String
+  gender             Gender
+  dateOfBirth        DateTime
+  color              String
+  weight             Float?
+  registrationNumber String?   // LOF / pedigree
+  microchipNumber    String?
+  photo              String?
+  photos             String[]
+  titles             String[]
+  healthTests        Json?     // { test: result, ... }
+  isBreeder          Boolean   @default(true)
+  status             DogStatus @default(ACTIVE)
+  description        String?   @db.Text
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  siredLitters Litter[] @relation("Sire")
+  damLitters   Litter[] @relation("Dam")
+  vetRecords   VetRecord[]
+  heatCycles   HeatCycle[] @relation("HeatDog")
+  matings      HeatCycle[] @relation("MatingPartner")
+
+  @@map("dogs")
+}
+
+// ============================================================
+// ÉLEVAGE — Portées
+// ============================================================
+
+enum LitterStatus {
+  PLANNED
+  EXPECTED
+  BORN
+  WEANED
+  CLOSED
+}
+
+model Litter {
+  id           String       @id @default(cuid())
+  name         String
+  sireId       String
+  damId        String
+  expectedDate DateTime?
+  birthDate    DateTime?
+  weaningDate  DateTime?
+  puppyCount   Int?
+  status       LitterStatus @default(PLANNED)
+  notes        String?      @db.Text
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  sire       Dog         @relation("Sire", fields: [sireId], references: [id])
+  dam        Dog         @relation("Dam", fields: [damId], references: [id])
+  puppies    Puppy[]
+  heatCycles HeatCycle[]
+
+  @@map("litters")
+}
+
+// ============================================================
+// ÉLEVAGE — Chiots
+// ============================================================
+
+enum PuppyStatus {
+  AVAILABLE
+  RESERVED
+  SOLD
+  KEPT
+}
+
+model Puppy {
+  id              String      @id @default(cuid())
+  name            String
+  gender          Gender
+  color           String
+  dateOfBirth     DateTime
+  microchipNumber String?
+  weight          Float?
+  price           Float?
+  description     String?     @db.Text
+  photos          String[]
+  slug            String      @unique
+  status          PuppyStatus @default(AVAILABLE)
+  litterId        String
+  buyerName       String?
+  buyerEmail      String?
+  buyerPhone      String?
+  soldAt          DateTime?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  litter     Litter      @relation(fields: [litterId], references: [id])
+  vetRecords VetRecord[]
+
+  @@index([status])
+  @@map("puppies")
+}
+
+// ============================================================
+// ÉLEVAGE — Suivi Vétérinaire
+// ============================================================
+
+enum VetRecordType {
+  VACCINE
+  DEWORMING
+  CHECKUP
+  SURGERY
+  TREATMENT
+  OTHER
+}
+
+model VetRecord {
+  id          String        @id @default(cuid())
+  date        DateTime
+  type        VetRecordType
+  description String
+  product     String?
+  dose        String?
+  cost        Float?
+  nextDueDate DateTime?
+  vetName     String?
+  notes       String?       @db.Text
+  dogId       String?
+  puppyId     String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  dog   Dog?   @relation(fields: [dogId], references: [id])
+  puppy Puppy? @relation(fields: [puppyId], references: [id])
+
+  @@index([nextDueDate])
+  @@map("vet_records")
+}
+
+// ============================================================
+// ÉLEVAGE — Cycles & Reproduction
+// ============================================================
+
+model HeatCycle {
+  id              String    @id @default(cuid())
+  dogId           String
+  startDate       DateTime
+  endDate         DateTime?
+  matingDate      DateTime?
+  matingPartnerId String?
+  litterId        String?
+  successful      Boolean?
+  notes           String?   @db.Text
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  dog            Dog     @relation("HeatDog", fields: [dogId], references: [id])
+  matingPartner  Dog?    @relation("MatingPartner", fields: [matingPartnerId], references: [id])
+  litter         Litter? @relation(fields: [litterId], references: [id])
+
+  @@map("heat_cycles")
+}
+
+// ============================================================
+// STOCKS — Inventaire
+// ============================================================
+
+enum StockUnit {
+  KG
+  UNIT
+  LITER
+  BOX
+  BAG
+  DOSE
+}
+
+model StockCategory {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  items StockItem[]
+
+  @@map("stock_categories")
+}
+
+model StockItem {
+  id          String    @id @default(cuid())
+  name        String
+  sku         String?   @unique
+  categoryId  String
+  quantity    Float     @default(0)
+  minQuantity Float     @default(0)
+  unit        StockUnit @default(UNIT)
+  costPrice   Float?
+  supplier    String?
+  expiryDate  DateTime?
+  notes       String?   @db.Text
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  category  StockCategory   @relation(fields: [categoryId], references: [id])
+  movements StockMovement[]
+
+  @@map("stock_items")
+}
+
+enum MovementType {
+  IN
+  OUT
+  ADJUSTMENT
+}
+
+model StockMovement {
+  id        String       @id @default(cuid())
+  itemId    String
+  type      MovementType
+  quantity  Float
+  reason    String?
+  date      DateTime     @default(now())
+  userId    String
+
+  item StockItem @relation(fields: [itemId], references: [id])
+  user User      @relation(fields: [userId], references: [id])
+
+  @@map("stock_movements")
+}
+
+// ============================================================
+// MARKETPLACE — Vendeurs
+// ============================================================
+
+enum VendorStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+}
+
+model Vendor {
+  id          String       @id @default(cuid())
+  userId      String       @unique
+  shopName    String
+  description String?      @db.Text
+  phone       String?
+  city        String?
+  photo       String?
+  status      VendorStatus @default(PENDING)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listings Listing[]
+
+  @@map("vendors")
+}
+
+// ============================================================
+// MARKETPLACE — Annonces
+// ============================================================
+
+enum ListingStatus {
+  DRAFT
+  PENDING_REVIEW
+  PUBLISHED
+  REJECTED
+  SOLD
+  EXPIRED
+}
+
+enum PaymentStatus {
+  UNPAID
+  PAID
+  REFUNDED
+}
+
+model Listing {
+  id              String        @id @default(cuid())
+  vendorId        String
+  title           String
+  description     String        @db.Text
+  breed           String
+  gender          Gender
+  age             String        // "3 mois", "1 an", etc.
+  price           Float
+  photos          String[]
+  city            String
+  phone           String?
+  status          ListingStatus @default(DRAFT)
+  rejectionReason String?
+  paymentStatus   PaymentStatus @default(UNPAID)
+  stripePaymentId String?
+  publishedAt     DateTime?
+  expiresAt       DateTime?
+  slug            String        @unique
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  vendor    Vendor     @relation(fields: [vendorId], references: [id])
+  favorites Favorite[]
+
+  @@index([status])
+  @@index([publishedAt])
+  @@map("listings")
+}
+
+// ============================================================
+// MARKETPLACE — Favoris
+// ============================================================
+
+model Favorite {
+  id        String   @id @default(cuid())
+  userId    String
+  listingId String
+  createdAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, listingId])
+  @@map("favorites")
+}

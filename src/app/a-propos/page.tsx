@@ -38,7 +38,7 @@ export default function AboutPage() {
           >
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
             <span className="text-xs font-semibold tracking-[0.3em] uppercase text-[var(--color-gold-light)]">
-              Notre Histoire
+              Qui sommes-nous
             </span>
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
           </motion.div>
@@ -48,8 +48,8 @@ export default function AboutPage() {
             transition={{ delay: 0.2 }}
             className="font-[var(--font-heading)] text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
           >
-            Une Passion,{' '}
-            <span className="text-gradient-gold italic">Une Mission</span>
+            Tout a commencé{' '}
+            <span className="text-gradient-gold italic">par un chien</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -57,8 +57,8 @@ export default function AboutPage() {
             transition={{ delay: 0.4 }}
             className="text-lg text-white/50 max-w-xl mx-auto leading-relaxed"
           >
-            Depuis plus de 15 ans, nous dédions notre vie à l&apos;élevage éthique
-            et responsable de compagnons d&apos;exception.
+            En 2010, un premier Spitz Nain a rejoint notre famille.
+            Quinze ans plus tard, l&apos;élevage est devenu notre métier — et notre passion n&apos;a pas changé.
           </motion.p>
         </div>
       </section>
@@ -89,30 +89,29 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-gold)] mb-4 block">
-                Qui Sommes-Nous
+                Notre Histoire
               </span>
               <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-[var(--color-charcoal)] mb-6">
-                L&apos;Amour des Animaux, La Quête de l&apos;Excellence
+                Un élevage familial, pas une usine à chiots
               </h2>
               <div className="space-y-4 text-[var(--color-text-light)] leading-relaxed">
                 <p>
-                  Pet&apos;s Club Maroc est né d&apos;une passion profonde pour les chiens et d&apos;une conviction :
-                  chaque compagnon mérite d&apos;être élevé dans les meilleures conditions, avec amour et respect.
+                  Pet&apos;s Club Maroc est né d&apos;un constat simple : au Maroc, trouver un éleveur transparent
+                  sur ses pratiques, ses lignées et la santé de ses chiots relevait du parcours du combattant.
+                  Nous avons voulu faire différemment.
                 </p>
                 <p>
-                  Notre élevage familial se distingue par son engagement envers la santé génétique,
-                  la socialisation précoce et le suivi personnalisé de chaque famille.
-                  Nous ne sommes pas un simple élevage — nous sommes une famille qui partage ses compagnons
-                  avec d&apos;autres familles.
+                  Ici, les chiens vivent avec nous — dans la maison, pas dans des cages.
+                  Nous sélectionnons nos reproducteurs sur leur santé génétique autant que sur leur beauté.
+                  Et nous prenons le temps de connaître chaque famille avant de lui confier un chiot.
                 </p>
                 <p>
-                  Chaque chiot qui quitte notre maison emporte avec lui des semaines de soins attentifs,
-                  de jeux et d&apos;apprentissages. Et chaque famille qui nous fait confiance rejoint notre
-                  communauté pour la vie.
+                  Après plus de 200 adoptions, notre plus grande fierté reste les messages que nous recevons
+                  des familles, parfois des années plus tard, pour nous donner des nouvelles de leur compagnon.
                 </p>
               </div>
               <Link href="/elevage-ethique" className="btn-outline mt-8 inline-flex items-center gap-2">
-                Notre Éthique
+                Découvrir notre éthique
                 <ArrowRight size={16} />
               </Link>
             </motion.div>
@@ -125,7 +124,7 @@ export default function AboutPage() {
         <div className="container-narrow">
           <SectionHeading
             subtitle="Notre Parcours"
-            title="Les Étapes Clés"
+            title="15 ans en quelques dates"
           />
 
           <div className="relative">
@@ -171,16 +170,16 @@ export default function AboutPage() {
       <section className="section-padding">
         <div className="container-luxury">
           <SectionHeading
-            subtitle="Notre Équipe"
-            title="Les Visages de Pet's Club"
-            description="Une équipe passionnée et dévouée au bien-être de chaque compagnon."
+            subtitle="L'Équipe"
+            title="Les personnes derrière chaque chiot"
+            description="Trois rôles complémentaires pour assurer la santé, la socialisation et le suivi de chaque compagnon."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
-              { name: 'Fondateur', role: 'Directeur & Éleveur Principal', desc: 'Plus de 15 ans d\'expérience en cynophilie et élevage éthique.' },
-              { name: 'Vétérinaire Partenaire', role: 'Suivi Santé', desc: 'Surveillance médicale continue et protocoles de santé rigoureux.' },
-              { name: 'Responsable Socialisation', role: 'Programme Chiot', desc: 'Développement comportemental et préparation à la vie en famille.' },
+              { name: 'Fondateur', role: 'Directeur & Éleveur Principal', desc: 'Passionné de cynophilie depuis 2010. Il sélectionne chaque reproducteur et supervise toutes les portées.' },
+              { name: 'Vétérinaire Partenaire', role: 'Suivi Santé', desc: 'Consultations régulières, protocoles vaccinaux et contrôle des tests génétiques avant chaque reproduction.' },
+              { name: 'Responsable Socialisation', role: 'Programme Chiot', desc: 'En charge du programme de 10 semaines : stimulation sensorielle, habituation et premiers apprentissages.' },
             ].map((member, i) => (
               <motion.div
                 key={member.name}
@@ -215,14 +214,14 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-6">
-              Prêt à Accueillir Votre Compagnon ?
+              Envie de nous rendre visite ?
             </h2>
             <p className="text-white/60 mb-8 max-w-md mx-auto">
-              Découvrez nos chiots disponibles ou contactez-nous pour planifier une visite.
+              Venez voir comment vivent nos chiens et rencontrer les chiots en personne.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/chiots" className="btn-gold">
-                Découvrir Nos Chiots
+                Voir les chiots
               </Link>
               <Link href="/contact" className="btn-outline border-white/30 text-white hover:bg-white hover:text-[var(--color-primary)]">
                 Nous Contacter

@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/api/', '/studio/'],
+      disallow: ['/api/', '/admin/', '/vendor/', '/login', '/register'],
     },
     sitemap: 'https://petsclubmaroc.com/sitemap.xml',
   };

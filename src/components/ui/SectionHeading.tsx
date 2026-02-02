@@ -51,7 +51,7 @@ export default function SectionHeading({
         <p className={cn(
           'mt-6 text-lg max-w-2xl leading-relaxed',
           align === 'center' && 'mx-auto',
-          light ? 'text-white/70' : 'text-[var(--color-text-light)]'
+          light ? 'text-white/80' : 'text-[var(--color-text-light)]'
         )}>
           {description}
         </p>

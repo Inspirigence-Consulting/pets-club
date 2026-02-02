@@ -63,7 +63,7 @@ export const mockPuppies: Puppy[] = [
       cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (3)', 'w_800,q_auto,f_auto'),
       cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (5)', 'w_800,q_auto,f_auto'),
     ],
-    description: 'Luna est une magnifique femelle Spitz Nain de lignée Teddy Bear. Son pelage orange sable, dense et soyeux, encadre un visage de poupée irrésistible. Socialisée avec amour, elle est prête à conquérir le cœur de sa nouvelle famille.',
+    description: 'Luna a le pelage orange sable des plus belles lignées Teddy Bear : dense, soyeux, avec ce visage rond qui fait craquer tout le monde. Elle a grandi avec ses frères et sœurs, elle est propre et habituée aux bruits du quotidien. Elle est prête.',
     father: {
       name: 'CH. Royal Crown\'s Golden Prince',
       titles: ['Champion International', 'Best in Show 2024'],
@@ -107,7 +107,7 @@ export const mockPuppies: Puppy[] = [
       cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (5)', 'w_800,q_auto,f_auto'),
       cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (2)', 'w_800,q_auto,f_auto'),
     ],
-    description: 'Atlas est un superbe mâle Berger Australien Blue Merle. Sa robe marbrée aux reflets argentés et ses yeux vairons en font un chiot d\'une beauté saisissante. Intelligent et athlétique, il sera le compagnon idéal d\'une famille active.',
+    description: 'Atlas a la robe Blue Merle marbrée d\'argent et les yeux vairons qui font la signature du Berger Australien. Vif, curieux et déjà très réceptif aux commandes de base. Il conviendra parfaitement à une famille active qui aime bouger.',
     father: {
       name: 'CH. Blue Ridge\'s Storm Chaser',
       titles: ['Champion International', 'Meilleur Mâle 2024'],
@@ -147,7 +147,7 @@ export const mockPuppies: Puppy[] = [
     status: 'reserved',
     image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (7)', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (7)', 'w_800,q_auto,f_auto')],
-    description: 'Caramel est un adorable mâle Spitz Nain de couleur crème. Son tempérament doux et joueur en fait un compagnon de rêve.',
+    description: 'Caramel est un mâle crème au tempérament doux et joueur. Il adore les câlins autant que les sessions de jeu. Déjà réservé par une famille de Rabat.',
     father: {
       name: 'CH. Royal Crown\'s Golden Prince',
       titles: ['Champion International'],
@@ -187,7 +187,7 @@ export const mockPuppies: Puppy[] = [
     status: 'coming',
     image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_800,q_auto,f_auto')],
-    description: 'Sierra est une magnifique femelle Berger Australien Red Tri de lignée Working. Elle sera disponible bientôt.',
+    description: 'Sierra est une femelle Red Tri issue de notre lignée Working. Née le 10 janvier, elle est en plein programme de socialisation et sera disponible à partir de mi-mars.',
     father: {
       name: 'CH. Mountain Ridge\'s Brave Heart',
       titles: ['Champion National', 'Working Dog Title'],
@@ -227,7 +227,7 @@ export const mockPuppies: Puppy[] = [
     status: 'sold',
     image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (1)', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (1)', 'w_800,q_auto,f_auto')],
-    description: 'Milo a rejoint sa nouvelle famille à Rabat. Ce magnifique mâle noir et feu a conquis tous les cœurs.',
+    description: 'Milo a rejoint sa famille à Rabat. Ce mâle Black & Tan de lignée Teddy Bear s\'est adapté dès le premier jour — sa famille nous envoie encore des photos régulièrement.',
     father: {
       name: 'CH. Royal Crown\'s Golden Prince',
       titles: ['Champion International'],
@@ -265,7 +265,7 @@ export const mockPuppies: Puppy[] = [
     status: 'sold',
     image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (9)', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (9)', 'w_800,q_auto,f_auto')],
-    description: 'Nala est partie rejoindre sa famille à Marrakech. Une femelle exceptionnelle par sa beauté et son intelligence.',
+    description: 'Nala vit aujourd\'hui à Marrakech. Black Tri de lignée Beauty, elle combine une morphologie conforme au standard et un caractère affectueux qui a séduit sa famille dès la première rencontre.',
     father: {
       name: 'CH. Blue Ridge\'s Storm Chaser',
       titles: ['Champion International'],
@@ -303,7 +303,7 @@ export const mockPuppies: Puppy[] = [
     status: 'available',
     image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (1)', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (1)', 'w_800,q_auto,f_auto')],
-    description: 'Simba est un magnifique mâle orange vif au tempérament joyeux et énergique. Parfait pour une famille aimante.',
+    description: 'Simba est un mâle orange vif, joyeux et plein d\'énergie. Lignée Standard, il a le port fier et le regard vif qui caractérisent les meilleurs Spitz Nain. Disponible dès maintenant.',
     father: {
       name: 'CH. Royal Crown\'s Golden Prince',
       titles: ['Champion International'],
@@ -341,7 +341,7 @@ export const mockPuppies: Puppy[] = [
     status: 'available',
     image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (13)', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (13)', 'w_800,q_auto,f_auto')],
-    description: 'Koda est un superbe mâle Red Merle aux yeux cuivrés. Issu de lignée Working, il excelle en obéissance et agilité.',
+    description: 'Koda est un mâle Red Merle aux yeux cuivrés, issu de notre lignée Working. Déjà très réceptif aux exercices d\'obéissance, il sera parfait pour une famille sportive ou passionnée d\'agility.',
     father: {
       name: 'CH. Mountain Ridge\'s Brave Heart',
       titles: ['Champion National', 'Working Dog Title'],
@@ -379,7 +379,7 @@ export const mockPuppies: Puppy[] = [
     status: 'adopted',
     image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (3)', 'w_600,h_600,c_fill,q_auto,f_auto'),
     images: [cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (3)', 'w_800,q_auto,f_auto')],
-    description: 'Bella a été adoptée par une famille aimante à Casablanca. Elle illumine son foyer de sa joie de vivre.',
+    description: 'Bella vit à Casablanca depuis l\'été dernier. Sable de lignée Teddy Bear, elle a conquis sa famille avec sa joie de vivre contagieuse et son tempérament câlin.',
     father: {
       name: 'CH. Royal Crown\'s Golden Prince',
       titles: ['Champion International'],
@@ -410,8 +410,8 @@ export const mockPuppies: Puppy[] = [
 export const mockBlogPosts: BlogPost[] = [
   {
     id: '1',
-    title: 'Comment préparer l\'arrivée de votre chiot',
-    excerpt: 'Tout ce que vous devez savoir pour accueillir votre nouveau compagnon dans les meilleures conditions.',
+    title: 'Checklist : tout préparer avant l\'arrivée de votre chiot',
+    excerpt: 'Gamelles, couchage, clôtures, premier rendez-vous vétérinaire — la liste complète pour ne rien oublier le jour J.',
     date: '2026-01-15',
     image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28', 'w_800,h_500,c_fill,g_auto,q_auto,f_auto'),
     slug: 'preparer-arrivee-chiot',
@@ -419,8 +419,8 @@ export const mockBlogPosts: BlogPost[] = [
   },
   {
     id: '2',
-    title: 'L\'importance des tests génétiques en élevage',
-    excerpt: 'Découvrez pourquoi les tests génétiques sont essentiels pour la santé de votre futur compagnon.',
+    title: 'Tests génétiques : pourquoi ils changent tout pour la santé de votre chiot',
+    excerpt: 'Patella, MDR1, dysplasie — ce que ces tests révèlent et pourquoi un éleveur sérieux ne s\'en passe pas.',
     date: '2026-01-08',
     image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_800,h_500,c_fill,g_auto,q_auto,f_auto'),
     slug: 'importance-tests-genetiques',
@@ -428,8 +428,8 @@ export const mockBlogPosts: BlogPost[] = [
   },
   {
     id: '3',
-    title: 'Le Berger Australien : un compagnon pour les actifs',
-    excerpt: 'Portrait complet de cette race exceptionnelle qui allie intelligence, beauté et dévouement.',
+    title: 'Le Berger Australien est-il fait pour vous ? Guide honnête',
+    excerpt: 'Intelligent et beau, oui. Mais aussi exigeant en exercice et en stimulation. Voici ce qu\'il faut savoir avant de craquer.',
     date: '2025-12-20',
     image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (9)', 'w_800,h_500,c_fill,g_auto,q_auto,f_auto'),
     slug: 'berger-australien-portrait',
@@ -438,19 +438,19 @@ export const mockBlogPosts: BlogPost[] = [
 ];
 
 export const mockGalleryItems: GalleryItem[] = [
-  { id: '1', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.25.03', 'w_800,q_auto,f_auto'), caption: 'Nos compagnons d\'exception — Vue d\'ensemble', category: 'champions' },
+  { id: '1', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.25.03', 'w_800,q_auto,f_auto'), caption: 'Nos compagnons d\'exception - Vue d\'ensemble', category: 'champions' },
   { id: '2', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (3)', 'w_800,q_auto,f_auto'), caption: 'Portrait en lumière naturelle', category: 'champions' },
-  { id: '3', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (5)', 'w_800,q_auto,f_auto'), caption: 'Séance photo — Pelage soyeux', category: 'champions' },
+  { id: '3', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (5)', 'w_800,q_auto,f_auto'), caption: 'Séance photo - Pelage soyeux', category: 'champions' },
   { id: '4', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (2)', 'w_800,q_auto,f_auto'), caption: 'Regard captivant', category: 'champions' },
   { id: '5', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_800,q_auto,f_auto'), caption: 'Moment de complicité', category: 'families' },
   { id: '6', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27', 'w_800,q_auto,f_auto'), caption: 'Promenade au parc', category: 'community' },
-  { id: '7', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.15.24 (1)', 'w_800,q_auto,f_auto'), caption: 'Nos installations — Espace de jeu', category: 'behind-scenes' },
+  { id: '7', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.15.24 (1)', 'w_800,q_auto,f_auto'), caption: 'Nos installations - Espace de jeu', category: 'behind-scenes' },
   { id: '8', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.15.24', 'w_800,q_auto,f_auto'), caption: 'Espace détente en plein air', category: 'behind-scenes' },
   { id: '9', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (7)', 'w_800,q_auto,f_auto'), caption: 'Socialisation des chiots', category: 'behind-scenes' },
   { id: '10', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (3)', 'w_800,q_auto,f_auto'), caption: 'Fratrie inséparable', category: 'community' },
   { id: '11', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (5)', 'w_800,q_auto,f_auto'), caption: 'Tendresse naturelle', category: 'families' },
   { id: '12', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (1)', 'w_800,q_auto,f_auto'), caption: 'Compagnon fidèle', category: 'families' },
-  { id: '13', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (9)', 'w_800,q_auto,f_auto'), caption: 'Moment câlin — En coulisses', category: 'behind-scenes' },
+  { id: '13', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (9)', 'w_800,q_auto,f_auto'), caption: 'Moment câlin - En coulisses', category: 'behind-scenes' },
   { id: '14', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (13)', 'w_800,q_auto,f_auto'), caption: 'Les premiers pas', category: 'behind-scenes' },
   { id: '15', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36', 'w_800,q_auto,f_auto'), caption: 'Regard doux', category: 'community' },
   { id: '16', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (1)', 'w_800,q_auto,f_auto'), caption: 'Petit explorateur', category: 'community' },
@@ -467,40 +467,40 @@ export const mockGalleryItems: GalleryItem[] = [
 export const timelineEvents = [
   {
     year: '2010',
-    title: 'Les Premiers Pas',
-    description: 'Naissance de notre passion pour l\'élevage éthique avec l\'arrivée de notre premier Spitz Nain, une femelle qui a changé notre vie.',
+    title: 'Un premier Spitz Nain',
+    description: 'Notre première femelle Spitz Nain rejoint la famille. Ce qui était un coup de cœur devient rapidement un projet de vie.',
   },
   {
     year: '2013',
-    title: 'Premier Champion',
-    description: 'Notre premier titre de Champion du Maroc, confirmant la qualité de notre programme d\'élevage.',
+    title: 'Premier titre de Champion du Maroc',
+    description: 'L\'un de nos Spitz Nain décroche le titre de Champion du Maroc — la confirmation que notre approche fonctionne.',
   },
   {
     year: '2016',
-    title: 'L\'Aventure Berger Australien',
-    description: 'Introduction de notre programme Berger Australien avec des lignées importées des meilleurs élevages européens.',
+    title: 'Le Berger Australien entre dans l\'élevage',
+    description: 'Nous importons nos premières lignées de Berger Australien depuis des élevages européens reconnus.',
   },
   {
     year: '2019',
-    title: 'Reconnaissance Internationale',
-    description: 'Premier titre de Champion International et reconnaissance de notre élevage par la FCI.',
+    title: 'Premier Champion International',
+    description: 'L\'un de nos reproducteurs obtient le titre de Champion International. Notre élevage est reconnu par la FCI.',
   },
   {
     year: '2022',
-    title: 'Nouvelles Installations',
-    description: 'Inauguration de nos nouvelles installations spacieuses, conçues pour le confort optimal de nos compagnons.',
+    title: 'De nouvelles installations',
+    description: 'Nous inaugurons un espace plus grand, pensé pour le confort des chiens et la socialisation des chiots.',
   },
   {
     year: '2025',
-    title: 'Pet\'s Club Maroc Aujourd\'hui',
-    description: 'Plus de 200 familles heureuses, des dizaines de titres de champions, et toujours la même passion pour l\'élevage éthique et responsable.',
+    title: 'Plus de 200 familles accompagnées',
+    description: 'Des dizaines de titres de champions, 200 familles dans notre communauté, et toujours la même exigence qu\'au premier jour.',
   },
 ];
 
 export const socializationProgram = [
-  { week: 'Semaine 1-2', title: 'Naissance & Premiers Soins', description: 'Suivi vétérinaire, pesée quotidienne, premiers contacts humains doux.' },
-  { week: 'Semaine 3-4', title: 'Éveil Sensoriel', description: 'Stimulation tactile, sonore et visuelle. Premiers pas et exploration du nid.' },
-  { week: 'Semaine 5-6', title: 'Socialisation Active', description: 'Interaction avec d\'autres chiens et humains. Introduction aux sons du quotidien.' },
-  { week: 'Semaine 7-8', title: 'Apprentissages Fondamentaux', description: 'Propreté, premiers exercices d\'obéissance, habituation au harnais et au brossage.' },
-  { week: 'Semaine 9-10', title: 'Préparation au Départ', description: 'Renforcement des acquis, visites vétérinaires finales, préparation du dossier de santé.' },
+  { week: 'Semaine 1-2', title: 'Naissance et premiers soins', description: 'Pesée quotidienne, suivi vétérinaire, maintien au chaud. Les chiots restent avec leur mère 24 h/24. Contact humain doux et limité.' },
+  { week: 'Semaine 3-4', title: 'Éveil des sens', description: 'Les chiots commencent à entendre et à voir. Nous introduisons des textures variées, des sons doux et des manipulations régulières pour stimuler leur développement.' },
+  { week: 'Semaine 5-6', title: 'Premiers contacts sociaux', description: 'Interactions avec d\'autres chiens adultes et avec différents membres de l\'équipe. Les chiots découvrent les bruits de la maison : aspirateur, sonnette, musique.' },
+  { week: 'Semaine 7-8', title: 'Les bases du quotidien', description: 'Apprentissage de la propreté, habituation au harnais et au brossage, premiers exercices de rappel. Le chiot commence à construire sa confiance.' },
+  { week: 'Semaine 9-10', title: 'Prêt pour la famille', description: 'Renforcement de tous les acquis, dernier bilan vétérinaire, constitution du dossier de santé complet. Le chiot est prêt à partir sereinement.' },
 ];

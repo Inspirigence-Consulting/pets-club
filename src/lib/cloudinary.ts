@@ -18,7 +18,7 @@ export function cldImg(publicId: string, transforms?: string): string {
  * Each entry has a publicId, format, width, height, and a semantic label.
  */
 export const CLD_IMAGES = {
-  // "After" images — professionally edited / showcase-ready
+  // "After" images - professionally edited / showcase-ready
   showcase1: { publicId: 'visual-showcase/after_WhatsApp Image 2026-01-28 at 17.25.03', format: 'jpg', w: 800, h: 500 },
   showcase2: { publicId: 'visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (3)', format: 'jpg', w: 3726, h: 4160 },
   showcase3: { publicId: 'visual-showcase/after_WhatsApp Image 2026-01-28 at 17.06.36 (5)', format: 'jpg', w: 2435, h: 3647 },
@@ -32,7 +32,7 @@ export const CLD_IMAGES = {
   showcase11: { publicId: 'visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (5)', format: 'jpg', w: 960, h: 1280 },
   showcase12: { publicId: 'visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (1)', format: 'jpg', w: 960, h: 1280 },
 
-  // "Before" images — raw / natural photos
+  // "Before" images - raw / natural photos
   raw1: { publicId: 'visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (9)', format: 'jpg', w: 3024, h: 4032 },
   raw2: { publicId: 'visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36 (13)', format: 'jpg', w: 3024, h: 4032 },
   raw3: { publicId: 'visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36', format: 'jpg', w: 1066, h: 1600 },

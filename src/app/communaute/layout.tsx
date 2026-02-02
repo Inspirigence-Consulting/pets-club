@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Communauté',
+  title: 'Blog & Communauté — Conseils chiens, guides et actualités',
   description:
-    "Rejoignez la communauté Pet's Club Maroc : blog, guides, newsletter et groupe WhatsApp pour les amoureux des chiens.",
+    "Articles, guides pratiques et actualités pour les propriétaires de Spitz Nain et Berger Australien. Rejoignez la communauté Pet's Club Maroc sur WhatsApp et par newsletter.",
   openGraph: {
-    title: "Communauté | Pet's Club Maroc",
+    title: "Blog & Communauté | Pet's Club Maroc",
     description:
-      "Ressources, actualités et une communauté passionnée pour accompagner votre aventure.",
+      "Conseils d'élevage, guides pour nouveaux propriétaires et actualités de Pet's Club Maroc.",
   },
 };
 

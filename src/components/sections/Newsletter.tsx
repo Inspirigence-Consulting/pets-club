@@ -32,11 +32,11 @@ export default function Newsletter() {
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
           </div>
           <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-4">
-            Restez Informé
+            Ne ratez aucune portée
           </h2>
-          <p className="mt-4 text-white/40 max-w-md mx-auto leading-relaxed">
-            Recevez en avant-première les annonces de nouvelles portées, nos conseils
-            d&apos;élevage et les actualités de Pet&apos;s Club Maroc.
+          <p className="mt-4 text-white/75 max-w-md mx-auto leading-relaxed">
+            Inscrivez-vous pour recevoir les annonces de nouvelles naissances,
+            nos conseils pour futurs propriétaires et les coulisses de l&apos;élevage.
           </p>
         </motion.div>
 

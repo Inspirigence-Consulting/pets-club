@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Nos Chiots',
+  title: 'Chiots Spitz Nain & Berger Australien à vendre — Pet\'s Club Maroc',
   description:
-    "Découvrez nos chiots Spitz Nain et Berger Australien disponibles. Tous issus de lignées championnes, élevés en famille avec amour.",
+    "Chiots Spitz Nain (Pomeranian) et Berger Australien disponibles au Maroc. Lignées championnes, socialisés 10 semaines, vaccinés et pucés. Consultez nos chiots et réservez.",
   openGraph: {
-    title: "Nos Chiots | Pet's Club Maroc",
+    title: "Chiots disponibles | Pet's Club Maroc",
     description:
-      "Des compagnons d'exception, élevés avec amour. Découvrez nos chiots disponibles.",
+      "Spitz Nain et Berger Australien de lignées championnes. Chiots socialisés, vaccinés, avec suivi à vie.",
   },
 };
 

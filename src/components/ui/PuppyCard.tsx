@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Heart, MapPin } from 'lucide-react';
 import { cn, calculateAge } from '@/lib/utils';
@@ -27,15 +28,15 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
       >
         <Link href={`/chiots/${puppy.slug}`} className="block group relative">
           <div className={cn(
-            'aspect-square relative overflow-hidden bg-[var(--color-cream)]',
+            'aspect-square relative overflow-hidden bg-[var(--color-cream)] rounded-lg',
             isSold && 'after:absolute after:inset-0 after:bg-black/30 after:z-10'
           )}>
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-              style={{
-                backgroundImage: `url(${puppy.image})`,
-                backgroundColor: 'var(--color-cream-dark)',
-              }}
+            <Image
+              src={puppy.image}
+              alt={`${puppy.name} - ${puppy.breedLabel}`}
+              fill
+              className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -47,7 +48,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
             {/* Status badge */}
             <div className="absolute top-3 left-3 z-30">
               <span className={cn(
-                'inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm',
+                'inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm rounded-md',
                 puppy.status === 'available' && 'bg-[var(--color-accent-sage)]/90',
                 puppy.status === 'reserved' && 'bg-[var(--color-accent-terracotta)]/90',
                 puppy.status === 'coming' && 'bg-[var(--color-gold)]/90',
@@ -63,7 +64,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
             {/* Name overlay at bottom */}
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent z-20">
               <p className="text-white text-sm font-semibold">{puppy.name}</p>
-              <p className="text-white/60 text-[11px]">{puppy.breedLabel}</p>
+              <p className="text-white/75 text-[11px]">{puppy.breedLabel}</p>
             </div>
           </div>
         </Link>
@@ -77,7 +78,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="card-luxury group"
+      className="card-luxury group rounded-2xl overflow-hidden"
       whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(0, 0, 0, 0.12)' }}
     >
       <Link href={`/chiots/${puppy.slug}`}>
@@ -86,12 +87,12 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
           'relative aspect-[4/5] overflow-hidden bg-[var(--color-cream)]',
           isSold && 'after:absolute after:inset-0 after:bg-black/20 after:z-10'
         )}>
-          <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{
-              backgroundImage: `url(${puppy.image})`,
-              backgroundColor: 'var(--color-cream-dark)',
-            }}
+          <Image
+            src={puppy.image}
+            alt={`${puppy.name} - ${puppy.breedLabel}`}
+            fill
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
           {/* Status badge */}
           <div className="absolute top-4 left-4 z-20">

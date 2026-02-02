@@ -47,7 +47,7 @@ export default function BreedShowcase() {
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
           </div>
           <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-charcoal)]">
-            Deux Races d&apos;Exception
+            Nos deux races
           </h2>
         </motion.div>
       </div>
@@ -105,7 +105,7 @@ export default function BreedShowcase() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.15 + 0.4 }}
-                    className="text-white/60 mb-6 max-w-md leading-relaxed text-[15px]"
+                    className="text-white/85 mb-6 max-w-md leading-relaxed text-[15px]"
                   >
                     {breed.tagline}
                   </motion.p>
@@ -121,7 +121,7 @@ export default function BreedShowcase() {
                     {breed.stats.map((stat) => (
                       <div key={stat.label} className="text-center">
                         <span className="block text-lg font-bold text-[var(--color-gold-light)]">{stat.value}</span>
-                        <span className="text-[10px] tracking-[0.15em] uppercase text-white/40">{stat.label}</span>
+                        <span className="text-[10px] tracking-[0.15em] uppercase text-white/65">{stat.label}</span>
                       </div>
                     ))}
                   </motion.div>

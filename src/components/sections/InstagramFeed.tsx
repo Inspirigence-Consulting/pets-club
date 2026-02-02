@@ -1,10 +1,26 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Instagram, Heart, MessageCircle, X, Grid3X3, ExternalLink } from 'lucide-react';
 import { INSTAGRAM_URL } from '@/lib/constants';
 import { cldImg } from '@/lib/cloudinary';
+
+const PROFILE = {
+  username: 'thepetsclubmaroc',
+  fullName: 'The Pets Club',
+  posts: 260,
+  followers: '11.6k',
+  following: 771,
+  bio: [
+    'Élevage éthique professionnel',
+    '🐶 Bouledogue français',
+    '🦊 Spitz pomeranian',
+    '🐕 Berger australien',
+    '📩 Suivi et accompagnement de A à Z',
+  ],
+};
 
 const instagramPosts = [
   { id: '1', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '2.4k', comments: '48' },
@@ -39,9 +55,14 @@ export default function InstagramFeed() {
           >
             <div className="w-20 h-20 md:w-[150px] md:h-[150px] rounded-full p-[3px] bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] hover:scale-105 transition-transform duration-300">
               <div className="w-full h-full rounded-full bg-white p-[3px]">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-[var(--color-gold)] to-[var(--color-primary)] flex items-center justify-center">
-                  <Instagram size={28} className="text-white md:hidden" />
-                  <Instagram size={48} className="text-white hidden md:block" />
+                <div className="w-full h-full rounded-full bg-white overflow-hidden flex items-center justify-center">
+                  <Image
+                    src="/images/logo-pets-club-white.png"
+                    alt={PROFILE.fullName}
+                    width={150}
+                    height={150}
+                    className="w-[60%] h-auto object-contain invert"
+                  />
                 </div>
               </div>
             </div>
@@ -54,13 +75,13 @@ export default function InstagramFeed() {
                 className="text-xl md:text-2xl font-semibold text-[var(--color-charcoal)]"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                thepetsclubmaroc
+                {PROFILE.username}
               </h3>
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-[var(--color-primary)] text-white text-sm font-semibold hover:bg-[var(--color-primary-light)] transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-[#0095f6] text-white text-sm font-semibold hover:bg-[#1877f2] transition-colors"
               >
                 Suivre
               </a>
@@ -69,27 +90,26 @@ export default function InstagramFeed() {
             {/* Stats */}
             <div className="hidden md:flex items-center gap-8 mb-3">
               <span className="text-sm text-[var(--color-text)]">
-                <strong className="font-semibold">{instagramPosts.length}</strong> publications
+                <strong className="font-semibold">{PROFILE.posts}</strong> publications
               </span>
               <span className="text-sm text-[var(--color-text)]">
-                <strong className="font-semibold">2.8k</strong> followers
+                <strong className="font-semibold">{PROFILE.followers}</strong> followers
               </span>
               <span className="text-sm text-[var(--color-text)]">
-                <strong className="font-semibold">145</strong> suivi(e)s
+                <strong className="font-semibold">{PROFILE.following}</strong> suivi(e)s
               </span>
             </div>
 
             {/* Bio */}
             <div className="hidden md:block">
               <p className="text-sm font-semibold text-[var(--color-charcoal)]">
-                The Pet&apos;s Club Maroc
+                {PROFILE.fullName}
               </p>
-              <p className="text-sm text-[var(--color-text-light)] mt-0.5">
-                Elevage premium &amp; ethique de Spitz Nain &amp; Berger Australien
-              </p>
-              <p className="text-sm text-[var(--color-text-light)]">
-                8 Avenue Oqba - Agdal, Rabat
-              </p>
+              {PROFILE.bio.map((line, i) => (
+                <p key={i} className="text-sm text-[var(--color-text-light)] leading-snug">
+                  {line}
+                </p>
+              ))}
             </div>
           </div>
         </motion.div>
@@ -97,15 +117,15 @@ export default function InstagramFeed() {
         {/* Mobile stats row */}
         <div className="flex md:hidden items-center justify-around py-3 border-t border-b border-[var(--color-cream-dark)] mb-3">
           <div className="text-center">
-            <p className="text-sm font-semibold text-[var(--color-charcoal)]">{instagramPosts.length}</p>
+            <p className="text-sm font-semibold text-[var(--color-charcoal)]">{PROFILE.posts}</p>
             <p className="text-[11px] text-[var(--color-text-muted)]">publications</p>
           </div>
           <div className="text-center">
-            <p className="text-sm font-semibold text-[var(--color-charcoal)]">2.8k</p>
+            <p className="text-sm font-semibold text-[var(--color-charcoal)]">{PROFILE.followers}</p>
             <p className="text-[11px] text-[var(--color-text-muted)]">followers</p>
           </div>
           <div className="text-center">
-            <p className="text-sm font-semibold text-[var(--color-charcoal)]">145</p>
+            <p className="text-sm font-semibold text-[var(--color-charcoal)]">{PROFILE.following}</p>
             <p className="text-[11px] text-[var(--color-text-muted)]">suivi(e)s</p>
           </div>
         </div>
@@ -118,7 +138,7 @@ export default function InstagramFeed() {
           </span>
         </div>
 
-        {/* Photo Grid — 3-column Instagram style */}
+        {/* Photo Grid - 3-column Instagram style */}
         <div className="grid grid-cols-3 gap-1 md:gap-4">
           {instagramPosts.map((post, i) => (
             <motion.button
@@ -128,7 +148,7 @@ export default function InstagramFeed() {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: i * 0.05 }}
               onClick={() => setSelectedPost(post)}
-              className="aspect-square relative group overflow-hidden bg-[var(--color-cream)] rounded-sm md:rounded-md cursor-pointer"
+              className="aspect-square relative group overflow-hidden bg-[var(--color-cream)] rounded-md md:rounded-lg cursor-pointer"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"

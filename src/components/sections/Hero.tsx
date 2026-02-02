@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden flex items-center">
-      {/* Hero dog image — right side, large with rounded corners */}
+      {/* Hero dog image - right side, large with rounded corners */}
       <motion.div
         initial={{ opacity: 0, x: 60 }}
         animate={{ opacity: 1, x: 0 }}
@@ -17,7 +17,7 @@ export default function Hero() {
         <div className="relative w-full h-full rounded-[105px] overflow-hidden">
           <Image
             src="/images/hero-dog.png"
-            alt="Berger Australien — The Pets Club Maroc"
+            alt="Berger Australien - The Pets Club Maroc"
             fill
             className="object-cover object-center"
             priority
@@ -44,7 +44,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" />
       </motion.div>
 
-      {/* Bottom gradient ellipse — CSS recreation of the Figma blurred ellipse */}
+      {/* Bottom gradient ellipse - CSS recreation of the Figma blurred ellipse */}
       <div
         className="absolute bottom-[-30px] left-[35%] w-[80%] h-[110px] pointer-events-none"
         style={{
@@ -54,7 +54,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      {/* Content — left side */}
+      {/* Content - left side */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-[120px] pt-[160px] pb-[120px] lg:pt-[200px] lg:pb-[160px]">
         <div className="max-w-[612px]">
           {/* Headline */}
@@ -65,9 +65,9 @@ export default function Hero() {
             className="text-white text-[28px] md:text-[32px] lg:text-[34px] font-black leading-[1.12] uppercase"
             style={{ fontFamily: 'var(--font-display)' }}
           >
-            Votre compagnon d&apos;exception,
+            Des chiots de lignées championnes,
             <br />
-            certifié et accompagné.
+            élevés en famille au Maroc.
           </motion.h1>
 
           {/* Subtitle */}
@@ -78,8 +78,8 @@ export default function Hero() {
             className="mt-8 text-[#eee] text-[15px] md:text-[16px] leading-relaxed max-w-[563px]"
             style={{ fontFamily: 'var(--font-subtitle)' }}
           >
-            Pomeranian, Berger Australien &amp; plus — Paiement sécurisé,
-            certificat de santé, accompagnement VIP post&#8209;adoption.
+            Spitz Nain et Berger Australien issus de reproducteurs titrés.
+            Tests génétiques, carnet de santé complet et suivi après adoption.
           </motion.p>
 
           {/* CTA buttons */}
@@ -91,15 +91,15 @@ export default function Hero() {
           >
             <Link
               href="/chiots"
-              className="glass-btn text-[14px] lg:text-[15px] px-7 py-4"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-[14px] lg:text-[15px] font-semibold tracking-wide hover:shadow-[0_6px_24px_rgba(197,165,90,0.45)] hover:-translate-y-0.5 transition-all duration-300"
             >
-              Réservez un chiot
+              Voir les chiots disponibles
             </Link>
             <Link
               href="/contact"
-              className="glass-btn text-[14px] lg:text-[15px] px-7 py-4"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full border border-white/30 text-white text-[14px] lg:text-[15px] font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 transition-all duration-300"
             >
-              Contactez nous
+              Nous écrire
             </Link>
           </motion.div>
         </div>

@@ -37,7 +37,7 @@ export default function EthicalBreedingPage() {
           >
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
             <span className="text-xs font-semibold tracking-[0.3em] uppercase text-[var(--color-gold-light)]">
-              Notre Engagement
+              Nos Engagements
             </span>
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
           </motion.div>
@@ -56,7 +56,7 @@ export default function EthicalBreedingPage() {
             transition={{ delay: 0.4 }}
             className="text-lg text-white/50 max-w-xl mx-auto leading-relaxed"
           >
-            Le bien-être de nos compagnons n&apos;est pas une option, c&apos;est notre raison d&apos;être.
+            Un chiot en bonne santé et bien dans sa tête, ça ne s&apos;improvise pas. Voici comment nous travaillons.
           </motion.p>
         </div>
       </section>
@@ -71,14 +71,14 @@ export default function EthicalBreedingPage() {
             className="text-center mb-16"
           >
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-[var(--color-charcoal)] mb-8">
-              Notre Philosophie
+              Ce en quoi nous croyons
             </h2>
             <div className="gold-accent-left text-left max-w-2xl mx-auto">
               <p className="text-lg text-[var(--color-text)] leading-relaxed italic">
-                &laquo; Nous croyons que chaque chien mérite de naître dans l&apos;amour, de grandir dans le respect
-                et de vivre dans une famille qui le chérit. Notre élevage n&apos;est pas une activité commerciale —
-                c&apos;est une vocation qui guide chacune de nos décisions, de la sélection de nos reproducteurs
-                jusqu&apos;au suivi de chaque famille. &raquo;
+                &laquo; On ne produit pas des chiots, on les élève. Chaque décision — du choix des reproducteurs
+                au moment où le chiot quitte notre maison — est guidée par une seule question :
+                est-ce le mieux pour le chien et pour sa future famille ? Si la réponse est non,
+                on ne le fait pas. &raquo;
               </p>
             </div>
           </motion.div>
@@ -86,20 +86,20 @@ export default function EthicalBreedingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
               {
-                title: 'Tests Génétiques Complets',
-                desc: 'Chaque reproducteur est testé pour les maladies héréditaires spécifiques à sa race. Nous n\'accouplons que des chiens génétiquement sains.',
+                title: 'Tests génétiques avant chaque reproduction',
+                desc: 'Patella, cardiaque, ADN, yeux, hanches selon la race : chaque reproducteur est testé pour les maladies héréditaires connues. Pas de résultat clair, pas de reproduction.',
               },
               {
-                title: 'Suivi Vétérinaire Rigoureux',
-                desc: 'Visites vétérinaires régulières, protocoles de vaccination complets et contrôles de santé à chaque étape de la vie du chiot.',
+                title: 'Suivi vétérinaire à chaque étape',
+                desc: 'De la gestation au départ du chiot : pesée quotidienne, vaccinations, vermifugation et examen de santé par notre vétérinaire partenaire.',
               },
               {
-                title: 'Environnement Familial',
-                desc: 'Nos chiens vivent avec nous, dans notre foyer. Ils ne sont jamais en cage ni isolés. Chaque chien est un membre de notre famille.',
+                title: 'Des chiens qui vivent dans la maison',
+                desc: 'Nos chiens dorment avec nous, mangent à heures fixes et ont accès à un espace de jeu. Aucun chien ne vit en cage ni en chenil isolé.',
               },
               {
-                title: 'Sélection Responsable',
-                desc: 'Nous limitons le nombre de portées par an et ne reproduisons que des chiens en parfaite santé, tant physique que psychologique.',
+                title: 'Peu de portées, beaucoup de soin',
+                desc: 'Nous limitons volontairement le nombre de portées chaque année. Une femelle ne reproduit que si elle est en parfaite santé physique et émotionnelle.',
               },
             ].map((item, i) => (
               <motion.div
@@ -131,9 +131,9 @@ export default function EthicalBreedingPage() {
       <section className="section-padding bg-[var(--color-cream)]">
         <div className="container-narrow">
           <SectionHeading
-            subtitle="Programme de Socialisation"
-            title="10 Semaines pour un Compagnon Équilibré"
-            description="Notre programme de socialisation est conçu pour préparer chaque chiot à sa nouvelle vie en famille."
+            subtitle="Socialisation"
+            title="Ce qui se passe pendant les 10 premières semaines"
+            description="Chaque phase a un objectif précis. Quand le chiot rejoint sa famille, il a déjà les bases pour s'adapter sereinement."
           />
 
           <div className="space-y-6">
@@ -169,8 +169,8 @@ export default function EthicalBreedingPage() {
       <section className="section-padding">
         <div className="container-narrow">
           <SectionHeading
-            subtitle="La Différence"
-            title="Éleveur Éthique vs. Éleveur Non Responsable"
+            subtitle="Comparer pour comprendre"
+            title="Éleveur responsable vs. éleveur de masse"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -186,14 +186,14 @@ export default function EthicalBreedingPage() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  'Tests génétiques complets sur tous les reproducteurs',
-                  'Chiots élevés en famille, jamais en cage',
-                  'Socialisation de 10 semaines minimum',
-                  'Suivi vétérinaire régulier et documenté',
-                  'Nombre de portées limité par an',
-                  'Accompagnement à vie pour chaque famille',
-                  'Transparence totale sur les lignées et la santé',
-                  'Sélection des familles adoptantes',
+                  'Tests génétiques réalisés avant chaque reproduction',
+                  'Chiots élevés dans la maison, jamais en cage',
+                  '10 semaines de socialisation avec la mère',
+                  'Suivi vétérinaire documenté et transmis à la famille',
+                  'Nombre de portées volontairement limité',
+                  'Accompagnement gratuit et sans limite de durée',
+                  'Résultats de santé et lignées consultables sur demande',
+                  'Chaque famille est rencontrée avant adoption',
                 ].map((item) => (
                   <li key={item} className="flex gap-3 text-sm text-[var(--color-text)]">
                     <Check size={16} className="text-[var(--color-accent-sage)] shrink-0 mt-0.5" />
@@ -216,14 +216,14 @@ export default function EthicalBreedingPage() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  'Pas de tests génétiques ni de suivi santé',
-                  'Chiots en cage ou en conditions précaires',
-                  'Séparation trop précoce de la mère',
-                  'Aucun suivi vétérinaire documenté',
-                  'Production intensive de portées',
-                  'Aucun suivi après la vente',
-                  'Opacité sur les origines et la santé',
-                  'Vente au plus offrant sans sélection',
+                  'Aucun test génétique, aucune vérification de santé',
+                  'Chiots en cage ou en chenil sans contact humain',
+                  'Séparation de la mère dès 5 ou 6 semaines',
+                  'Pas de carnet de santé ni de certificat vétérinaire',
+                  'Reproductions à répétition, sans repos pour la femelle',
+                  'Plus de nouvelles après le paiement',
+                  'Impossible de voir les parents ou les conditions d\'élevage',
+                  'Le chiot part au premier acheteur, sans vérification',
                 ].map((item) => (
                   <li key={item} className="flex gap-3 text-sm text-[var(--color-text-light)]">
                     <X size={16} className="text-red-400 shrink-0 mt-0.5" />
@@ -248,22 +248,22 @@ export default function EthicalBreedingPage() {
               Notre Promesse
             </span>
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-6">
-              La Promesse des 10 Semaines
+              Pourquoi 10 semaines, pas 6 ou 8 ?
             </h2>
             <div className="divider-gold mx-auto mb-8" />
             <p className="text-white/70 max-w-2xl mx-auto leading-relaxed mb-8">
-              Nous nous engageons à ne jamais séparer un chiot de sa mère avant l&apos;âge de 10 semaines.
-              Cette période est cruciale pour le développement émotionnel, la socialisation et l&apos;apprentissage
-              des codes canins. Un chiot bien socialisé sera un compagnon plus équilibré, plus confiant
-              et mieux adapté à la vie en famille.
+              Un chiot retiré trop tôt à sa mère risque des problèmes de comportement :
+              anxiété, mordillements, difficulté à rester seul. Les semaines 7 à 10 sont celles
+              où il apprend les codes sociaux canins, la gestion de la frustration et les bases
+              de la propreté. C&apos;est pour cela que nous ne faisons aucune exception à cette règle.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/chiots" className="btn-gold">
-                Découvrir Nos Chiots
+                Voir les chiots disponibles
                 <ArrowRight size={16} />
               </Link>
               <Link href="/contact" className="btn-outline border-white/30 text-white hover:bg-white hover:text-[var(--color-primary)]">
-                Planifier une Visite
+                Organiser une visite
               </Link>
             </div>
           </motion.div>

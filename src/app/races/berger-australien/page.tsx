@@ -34,7 +34,7 @@ export default function AustralianShepherdPage() {
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/20 to-transparent" />
 
         <div className="container-luxury relative z-10">
-          <Breadcrumbs items={[{ label: 'Nos Races', href: '/#races' }, { label: 'Berger Australien' }]} light />
+          <Breadcrumbs items={[{ label: 'Nos Races', href: '#' }, { label: 'Berger Australien' }]} light />
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0 }}
@@ -58,7 +58,7 @@ export default function AustralianShepherdPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-lg text-white/50 italic leading-relaxed"
+              className="text-lg text-white/75 italic leading-relaxed"
             >
               {breed.tagline}
             </motion.p>
@@ -88,7 +88,7 @@ export default function AustralianShepherdPage() {
               viewport={{ once: true }}
             >
               <h2 className="font-[var(--font-heading)] text-3xl font-bold text-[var(--color-charcoal)] mb-6">
-                Intelligence, Grâce et Loyauté
+                Le chien qui ne tient jamais en place (et c&apos;est pour ça qu&apos;on l&apos;aime)
               </h2>
               <p className="text-[var(--color-text-light)] leading-relaxed mb-8">
                 {breed.description}
@@ -116,21 +116,21 @@ export default function AustralianShepherdPage() {
         <div className="container-luxury">
           <SectionHeading
             subtitle="Nos Lignées"
-            title="Working Line & Beauty Line"
-            description="Deux approches complémentaires pour un compagnon exceptionnel, selon votre style de vie."
+            title="Working Line ou Beauty Line : selon votre quotidien"
+            description="Famille sportive ou famille tranquille ? Nous avons deux profils de Berger Australien, chacun avec ses forces."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
                 name: 'Working Line',
-                desc: 'Des Bergers Australiens sélectionnés pour leur intelligence, leur endurance et leurs aptitudes au travail. Idéals pour les familles actives, les sportifs et les passionnés de disciplines canines.',
-                traits: ['Intelligence supérieure', 'Endurance', 'Drive naturel', 'Obéissance innée'],
+                desc: 'Sélectionnés pour leur vivacité d\'esprit et leur endurance. Ces Bergers Australiens sont faits pour bouger : randonnée, agility, canicross. Le compagnon idéal des familles qui aiment sortir.',
+                traits: ['Vivacité d\'esprit', 'Endurance', 'Drive naturel', 'Obéissance innée'],
               },
               {
                 name: 'Beauty Line',
-                desc: 'La beauté du Berger Australien dans toute sa splendeur. Des robes spectaculaires, une morphologie conforme au standard et un tempérament doux parfait pour la vie de famille.',
-                traits: ['Robes exceptionnelles', 'Morphologie standard', 'Tempérament doux', 'Présence en ring'],
+                desc: 'Des robes spectaculaires, une morphologie conforme au standard FCI et un tempérament plus posé. Parfait pour les familles qui veulent un beau chien au quotidien, sans forcément courir un marathon chaque week-end.',
+                traits: ['Robes spectaculaires', 'Morphologie standard', 'Tempérament posé', 'Présence en ring'],
               },
             ].map((line, i) => (
               <motion.div
@@ -188,15 +188,15 @@ export default function AustralianShepherdPage() {
         <div className="container-narrow">
           <SectionHeading
             subtitle="Bien-Être"
-            title="Prendre Soin de Votre Berger Australien"
+            title="Ce qu'il faut savoir avant d'adopter un Aussie"
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              { title: 'Exercice Quotidien', desc: 'Le Berger Australien a besoin d\'au moins 1 à 2 heures d\'activité physique par jour. Randonnées, jeux, agility — il excelle dans tout ce qui demande de l\'énergie et de l\'intelligence.' },
-              { title: 'Stimulation Mentale', desc: 'Race extrêmement intelligente, l\'Aussie a besoin de challenges mentaux réguliers. Puzzles, obéissance avancée, tricks — gardez son esprit actif pour un chien épanoui.' },
-              { title: 'Toilettage', desc: 'Son double pelage nécessite un brossage régulier (2-3 fois par semaine) et plus fréquent en période de mue. Un entretien régulier prévient les nœuds et maintient la beauté de sa robe.' },
-              { title: 'Santé', desc: 'Suivi vétérinaire régulier, alimentation de qualité et attention aux prédispositions de la race (yeux, hanches). Nos chiots partent avec un dossier santé complet pour vous guider.' },
+              { title: 'Exercice quotidien', desc: 'Comptez 1 à 2 heures d\'activité par jour — randonnée, jeux de balle, agility. Un Aussie qui ne se dépense pas assez trouvera lui-même de quoi s\'occuper (et vos chaussures risquent d\'en pâtir).' },
+              { title: 'Stimulation mentale', desc: 'Ce chien apprend vite et s\'ennuie encore plus vite. Puzzles, nouvelles commandes, jeux de recherche : occupez son cerveau autant que ses pattes.' },
+              { title: 'Toilettage', desc: 'Son double pelage demande un brossage 2 à 3 fois par semaine, plus souvent en période de mue au printemps et en automne. Rien d\'insurmontable, mais il faut s\'y tenir.' },
+              { title: 'Santé', desc: 'Yeux, hanches et gène MDR1 sont les points de vigilance de la race. Nos chiots partent avec un dossier santé complet, résultats génétiques inclus, pour que votre vétérinaire ait toutes les informations dès le premier rendez-vous.' },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
@@ -227,10 +227,10 @@ export default function AustralianShepherdPage() {
             viewport={{ once: true }}
           >
             <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl font-bold text-white mb-6">
-              Le Berger Australien Vous Inspire ?
+              Le Berger Australien, c&apos;est pour vous ?
             </h2>
-            <p className="text-white/60 mb-8 max-w-md mx-auto">
-              Contactez-nous pour découvrir nos chiots ou rejoignez notre liste d&apos;attente.
+            <p className="text-white/75 mb-8 max-w-md mx-auto">
+              Découvrez nos chiots disponibles ou inscrivez-vous pour être prévenu des prochaines portées.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-gold">

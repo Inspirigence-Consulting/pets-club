@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'À Propos',
+  title: 'À Propos — Notre Histoire d\'Éleveur au Maroc depuis 2010',
   description:
-    "Découvrez l'histoire de Pet's Club Maroc, éleveur passionné de Spitz Nain et Berger Australien au Maroc depuis plus de 15 ans.",
+    "Pet's Club Maroc, éleveur de Spitz Nain et Berger Australien depuis plus de 15 ans. Découvrez notre parcours, notre équipe et notre engagement pour un élevage familial et responsable.",
   openGraph: {
-    title: "À Propos | Pet's Club Maroc",
+    title: "Notre Histoire | Pet's Club Maroc",
     description:
-      "Notre passion, notre histoire, notre engagement pour l'élevage éthique de compagnons d'exception.",
+      "De notre premier Spitz Nain en 2010 à plus de 200 familles accompagnées. Découvrez le parcours de Pet's Club Maroc.",
   },
 };
 

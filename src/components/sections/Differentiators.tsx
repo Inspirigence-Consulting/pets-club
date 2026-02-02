@@ -30,16 +30,16 @@ export default function Differentiators() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
             <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--color-gold-light)]">
-              Pourquoi Nous Choisir
+              Notre Approche
             </span>
             <div className="w-8 h-[1px] bg-[var(--color-gold)]/40" />
           </div>
           <h2 className="font-[var(--font-heading)] text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            L&apos;Excellence à Chaque Étape
+            Ce qui nous distingue
           </h2>
-          <p className="mt-6 text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-            Notre engagement pour le bien-être animal et la satisfaction de nos familles
-            se reflète dans chaque aspect de notre élevage.
+          <p className="mt-6 text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+            Quinze ans d&apos;élevage nous ont appris une chose : un bon chiot,
+            ça se prépare bien avant la naissance.
           </p>
         </motion.div>
 
@@ -55,7 +55,7 @@ export default function Differentiators() {
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 className="group relative"
               >
-                <div className="relative p-8 border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm hover:border-[var(--color-gold)]/20 hover:bg-white/[0.05] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-500 h-full">
+                <div className="relative p-8 border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm hover:border-[var(--color-gold)]/20 hover:bg-white/[0.05] hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] transition-all duration-500 h-full rounded-xl">
                   {/* Corner accent */}
                   <div className="absolute top-0 left-0 w-6 h-[1px] bg-[var(--color-gold)]/30 group-hover:w-10 transition-all duration-500" />
                   <div className="absolute top-0 left-0 w-[1px] h-6 bg-[var(--color-gold)]/30 group-hover:h-10 transition-all duration-500" />
@@ -66,7 +66,7 @@ export default function Differentiators() {
                   <h3 className="font-[var(--font-heading)] text-xl font-semibold text-white mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/40 leading-relaxed group-hover:text-white/60 transition-colors duration-500">
+                  <p className="text-sm text-white/70 leading-relaxed group-hover:text-white/90 transition-colors duration-500">
                     {item.description}
                   </p>
                 </div>
