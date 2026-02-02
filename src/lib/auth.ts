@@ -3,6 +3,7 @@ import Credentials from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { authConfig } from "@/lib/auth.config";
 import type { UserRole } from "@prisma/client";
 
 declare module "next-auth" {
@@ -30,13 +31,9 @@ declare module "@auth/core/jwt" {
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  ...authConfig,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   adapter: PrismaAdapter(prisma) as any,
-  session: { strategy: "jwt" },
-  pages: {
-    signIn: "/login",
-    error: "/login",
-  },
   providers: [
     Credentials({
       name: "credentials",
@@ -71,45 +68,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
-        token.id = user.id!;
-      }
-      return token;
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id;
-        session.user.role = token.role;
-      }
-      return session;
-    },
-    async authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
-      const isAdmin = auth?.user?.role === "ADMIN";
-      const isVendor =
-        auth?.user?.role === "VENDOR" || auth?.user?.role === "ADMIN";
-
-      const path = nextUrl.pathname;
-
-      if (path.startsWith("/admin")) {
-        return isAdmin;
-      }
-
-      if (path.startsWith("/vendor")) {
-        return isVendor;
-      }
-
-      if (path === "/login" || path === "/register") {
-        if (isLoggedIn) {
-          return Response.redirect(new URL("/", nextUrl));
-        }
-        return true;
-      }
-
-      return true;
-    },
-  },
 });
