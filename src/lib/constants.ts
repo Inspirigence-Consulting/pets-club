@@ -1,5 +1,5 @@
 export const SITE_NAME = "Pet's Club Maroc";
-export const SITE_DESCRIPTION = "Éleveur de Spitz Nain (Pomeranian) et Berger Australien au Maroc — lignées championnes, suivi vétérinaire complet et accompagnement personnalisé à vie";
+export const SITE_DESCRIPTION = "Éleveur de Spitz Nain (Pomeranian) et Berger Australien au Maroc. Lignées championnes, suivi vétérinaire complet et accompagnement personnalisé à vie.";
 export const WHATSAPP_NUMBER = "+212653214751";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}`;
 export const INSTAGRAM_URL = "https://www.instagram.com/thepetsclubmaroc/";
@@ -54,7 +54,7 @@ export const DIFFERENTIATORS = [
   },
   {
     title: "On reste là, même après l'adoption",
-    description: "Questions sur la nutrition, le comportement, la santé ? Nous restons joignables par WhatsApp, par téléphone ou en personne — aussi longtemps que votre compagnon vivra.",
+    description: "Questions sur la nutrition, le comportement, la santé ? Nous restons joignables par WhatsApp, par téléphone ou en personne, aussi longtemps que votre compagnon vivra.",
     icon: "shield",
   },
 ] as const;
@@ -78,8 +78,8 @@ export const BREEDS = {
     name: "Berger Australien",
     nameEn: "Australian Shepherd",
     slug: "berger-australien",
-    tagline: "Athlète, penseur, compagnon de vie — le Berger Australien ne fait jamais les choses à moitié.",
-    description: "Si vous cherchez un chien qui vous suit partout — randonnée, course, canapé compris — le Berger Australien est fait pour vous. Vif d'esprit, athlétique et d'une loyauté rare, il tisse un lien profond avec sa famille. Sa beauté saisissante et ses yeux souvent vairons ne font qu'ajouter au tableau.",
+    tagline: "Athlète, penseur, compagnon de vie. Le Berger Australien ne fait jamais les choses à moitié.",
+    description: "Si vous cherchez un chien qui vous suit partout (randonnée, course, canapé compris), le Berger Australien est fait pour vous. Vif d'esprit, athlétique et d'une loyauté rare, il tisse un lien profond avec sa famille. Sa beauté saisissante et ses yeux souvent vairons ne font qu'ajouter au tableau.",
     bloodlines: ["Working Line", "Beauty Line"],
     characteristics: [
       { label: "Poids", value: "18 - 30 kg" },
@@ -131,7 +131,7 @@ export const TESTIMONIALS = [
 export const FAQ_ITEMS = [
   {
     question: "Comment se passe la réservation d'un chiot ?",
-    answer: "Tout commence par un échange — par WhatsApp, téléphone ou email — pour comprendre votre mode de vie et vos attentes. Ensuite, nous organisons une visite de l'élevage ou un appel vidéo pour vous présenter les chiots. Si le courant passe des deux côtés, la réservation est confirmée avec un acompte. Nous choisissons autant nos familles que vous choisissez votre compagnon.",
+    answer: "Tout commence par un échange (WhatsApp, téléphone ou email) pour comprendre votre mode de vie et vos attentes. Ensuite, nous organisons une visite de l'élevage ou un appel vidéo pour vous présenter les chiots. Si le courant passe des deux côtés, la réservation est confirmée avec un acompte. Nous choisissons autant nos familles que vous choisissez votre compagnon.",
   },
   {
     question: "Combien coûte un chiot Pet's Club Maroc ?",
@@ -151,7 +151,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: "Que se passe-t-il après l'adoption ?",
-    answer: "On ne vous laisse pas seul. Vous gardez un accès direct à notre équipe — par WhatsApp, téléphone ou en personne — pour toute question sur la nutrition, le comportement ou la santé. Pas de date d'expiration : cet accompagnement dure toute la vie de votre compagnon.",
+    answer: "On ne vous laisse pas seul. Vous gardez un accès direct à notre équipe (WhatsApp, téléphone ou en personne) pour toute question sur la nutrition, le comportement ou la santé. Pas de date d'expiration : cet accompagnement dure toute la vie de votre compagnon.",
   },
 ] as const;
 

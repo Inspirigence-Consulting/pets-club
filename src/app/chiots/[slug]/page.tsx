@@ -12,83 +12,6 @@ import { calculateAge, cn } from '@/lib/utils';
 import ContactForm from '@/components/forms/ContactForm';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-function mapApiPuppyDetail(apiPuppy: any): Puppy {
-  const breed = apiPuppy.litter?.sire?.breed?.toLowerCase() || '';
-  const breedSlug = breed.includes('pomeranian')
-    ? 'pomeranian'
-    : breed.includes('australien') || breed.includes('australian')
-      ? 'berger-australien'
-      : 'pomeranian';
-  const breedLabel = breedSlug === 'pomeranian' ? 'Spitz Nain' : 'Berger Australien';
-
-  // healthTests is a Json? field - object like { patella: "Clear", cardiac: "Normal" }
-  const sireHealthTests = apiPuppy.litter?.sire?.healthTests;
-  const damHealthTests = apiPuppy.litter?.dam?.healthTests;
-
-  const formatHealthTests = (tests: any): string[] => {
-    if (!tests) return [];
-    if (Array.isArray(tests)) return tests.map(String);
-    if (typeof tests === 'object') {
-      return Object.entries(tests).map(([key, value]) => `${key}: ${value}`);
-    }
-    return [];
-  };
-
-  const statusMap: Record<string, Puppy['status']> = {
-    AVAILABLE: 'available',
-    RESERVED: 'reserved',
-    SOLD: 'sold',
-    ADOPTED: 'adopted',
-  };
-
-  return {
-    id: apiPuppy.id,
-    name: apiPuppy.name,
-    breed: breedSlug as 'pomeranian' | 'berger-australien',
-    breedLabel,
-    gender: apiPuppy.gender === 'MALE' ? 'male' : 'female',
-    dob: apiPuppy.dateOfBirth?.split('T')[0] || '',
-    color: apiPuppy.color || '',
-    line: apiPuppy.litter?.name || '',
-    status: statusMap[apiPuppy.status] || 'available',
-    image: apiPuppy.photos?.[0] || '/images/placeholder-puppy.jpg',
-    images:
-      apiPuppy.photos?.length > 0
-        ? apiPuppy.photos
-        : ['/images/placeholder-puppy.jpg'],
-    description: apiPuppy.description || '',
-    father: {
-      name: apiPuppy.litter?.sire?.name || 'Inconnu',
-      titles: Array.isArray(apiPuppy.litter?.sire?.titles)
-        ? apiPuppy.litter.sire.titles
-        : [],
-      image: apiPuppy.litter?.sire?.photo || '/images/placeholder-dog.jpg',
-      healthTests: formatHealthTests(sireHealthTests),
-      breed: apiPuppy.litter?.sire?.breed || '',
-      color: apiPuppy.litter?.sire?.color || '',
-    },
-    mother: {
-      name: apiPuppy.litter?.dam?.name || 'Inconnu',
-      titles: Array.isArray(apiPuppy.litter?.dam?.titles)
-        ? apiPuppy.litter.dam.titles
-        : [],
-      image: apiPuppy.litter?.dam?.photo || '/images/placeholder-dog.jpg',
-      healthTests: formatHealthTests(damHealthTests),
-      breed: apiPuppy.litter?.dam?.breed || '',
-      color: apiPuppy.litter?.dam?.color || '',
-    },
-    included: [
-      'Carnet de vaccination à jour',
-      'Puce électronique',
-      'Certificat de santé',
-      'Kit de démarrage',
-    ],
-    slug: apiPuppy.slug,
-  };
-}
-/* eslint-enable @typescript-eslint/no-explicit-any */
-
 export default function PuppyDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
@@ -100,37 +23,14 @@ export default function PuppyDetailPage() {
   const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
-    let cancelled = false;
-
-    async function fetchPuppy() {
-      try {
-        const res = await fetch(`/api/puppies/${slug}`);
-        if (!res.ok) throw new Error('API error');
-        const json = await res.json();
-        if (!cancelled) {
-          setPuppy(mapApiPuppyDetail(json));
-        }
-      } catch {
-        // Fallback to mock data when API is unavailable
-        const mockPuppy = mockPuppies.find((p) => p.slug === slug);
-        if (!cancelled) {
-          if (mockPuppy) {
-            setPuppy(mockPuppy);
-          } else {
-            setNotFound(true);
-          }
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
+    // The public catalogue is the cattery's real inventory (see lib/mock-data).
+    const mockPuppy = mockPuppies.find((p) => p.slug === slug);
+    if (mockPuppy) {
+      setPuppy(mockPuppy);
+    } else {
+      setNotFound(true);
     }
-
-    fetchPuppy();
-    return () => {
-      cancelled = true;
-    };
+    setLoading(false);
   }, [slug]);
 
   if (loading) {
@@ -276,7 +176,7 @@ export default function PuppyDetailPage() {
                 </h3>
                 <p className="text-sm text-[var(--color-text-light)] leading-relaxed">
                   Le prix pour accueillir {puppy.name} dépend de son profil et de sa lignée.
-                  Contactez-nous pour en discuter — nous répondons sous 24 h.
+                  Contactez-nous pour en discuter. Nous répondons sous 24 h.
                 </p>
               </div>
 

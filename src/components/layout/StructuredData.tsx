@@ -52,7 +52,7 @@ export function LocalBusinessSchema() {
     },
     openingHours: ['Mo-Sa 09:00-18:00'],
     priceRange: '$$$',
-    image: 'https://res.cloudinary.com/dlugprv1v/image/upload/w_1200,q_auto,f_auto/visual-showcase/after_WhatsApp%20Image%202026-01-28%20at%2017.25.03',
+    image: 'https://petsclubmaroc.com/images/catalogue/aussie-male-merle-20000.jpg',
   };
 
   return (

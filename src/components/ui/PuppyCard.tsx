@@ -24,7 +24,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: index * 0.05 }}
+        transition={{ duration: 0.4, delay: index * 0.05, ease: [0.23, 1, 0.32, 1] }}
       >
         <Link href={`/chiots/${puppy.slug}`} className="block group relative">
           <div className={cn(
@@ -35,7 +35,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
               src={puppy.image}
               alt={`${puppy.name} - ${puppy.breedLabel}`}
               fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+              className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-105"
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
             {/* Hover overlay */}
@@ -74,12 +74,11 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
       className="card-luxury group rounded-2xl overflow-hidden"
-      whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(0, 0, 0, 0.12)' }}
     >
       <Link href={`/chiots/${puppy.slug}`}>
         {/* Image */}
@@ -91,7 +90,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
             src={puppy.image}
             alt={`${puppy.name} - ${puppy.breedLabel}`}
             fill
-            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            className="object-cover object-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
           {/* Status badge */}
@@ -102,7 +101,7 @@ export default function PuppyCard({ puppy, index = 0, variant = 'grid' }: PuppyC
           </div>
           {/* Overlay on hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 z-20">
+          <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] translate-y-1 group-hover:translate-y-0 z-20">
             <span className="btn-gold text-xs w-full justify-center">
               En savoir plus
             </span>

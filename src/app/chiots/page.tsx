@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { Grid3X3, LayoutGrid, Heart, Loader2 } from 'lucide-react';
+import { Grid3X3, LayoutGrid, Heart } from 'lucide-react';
 import PuppyCard from '@/components/ui/PuppyCard';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { mockPuppies, type Puppy } from '@/lib/mock-data';
@@ -12,95 +12,13 @@ type FilterBreed = 'all' | 'pomeranian' | 'berger-australien';
 type FilterStatus = 'all' | 'available' | 'reserved' | 'coming' | 'sold';
 type ViewMode = 'feed' | 'grid';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-function mapApiPuppy(apiPuppy: any): Puppy {
-  const breed = apiPuppy.litter?.sire?.breed?.toLowerCase() || '';
-  const breedSlug = breed.includes('pomeranian')
-    ? 'pomeranian'
-    : breed.includes('australien') || breed.includes('australian')
-      ? 'berger-australien'
-      : 'pomeranian';
-  const breedLabel = breedSlug === 'pomeranian' ? 'Spitz Nain' : 'Berger Australien';
-
-  return {
-    id: apiPuppy.id,
-    name: apiPuppy.name,
-    breed: breedSlug as 'pomeranian' | 'berger-australien',
-    breedLabel,
-    gender: apiPuppy.gender === 'MALE' ? 'male' : 'female',
-    dob: apiPuppy.dateOfBirth?.split('T')[0] || '',
-    color: apiPuppy.color || '',
-    line: apiPuppy.litter?.name || '',
-    status: 'available',
-    image: apiPuppy.photos?.[0] || '/images/placeholder-puppy.jpg',
-    images:
-      apiPuppy.photos?.length > 0
-        ? apiPuppy.photos
-        : ['/images/placeholder-puppy.jpg'],
-    description: apiPuppy.description || '',
-    father: {
-      name: apiPuppy.litter?.sire?.name || 'Inconnu',
-      titles: [],
-      image: apiPuppy.litter?.sire?.photo || '/images/placeholder-dog.jpg',
-      healthTests: [],
-      breed: apiPuppy.litter?.sire?.breed || '',
-      color: '',
-    },
-    mother: {
-      name: apiPuppy.litter?.dam?.name || 'Inconnu',
-      titles: [],
-      image: apiPuppy.litter?.dam?.photo || '/images/placeholder-dog.jpg',
-      healthTests: [],
-      breed: apiPuppy.litter?.dam?.breed || '',
-      color: '',
-    },
-    included: [
-      'Carnet de vaccination à jour',
-      'Puce électronique',
-      'Certificat de santé',
-      'Kit de démarrage',
-    ],
-    slug: apiPuppy.slug,
-  };
-}
-/* eslint-enable @typescript-eslint/no-explicit-any */
-
 export default function PuppiesPage() {
   const [breed, setBreed] = useState<FilterBreed>('all');
   const [status, setStatus] = useState<FilterStatus>('all');
   const [view, setView] = useState<ViewMode>('feed');
-  const [puppies, setPuppies] = useState<Puppy[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    let cancelled = false;
-
-    async function fetchPuppies() {
-      try {
-        const res = await fetch('/api/puppies?limit=50');
-        if (!res.ok) throw new Error('API error');
-        const json = await res.json();
-        const mapped = (json.data || []).map(mapApiPuppy);
-        if (!cancelled) {
-          setPuppies(mapped);
-        }
-      } catch {
-        // Fallback to mock data when API is unavailable
-        if (!cancelled) {
-          setPuppies(mockPuppies);
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
-      }
-    }
-
-    fetchPuppies();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // The public catalogue is the cattery's real inventory (see lib/mock-data).
+  const puppies: Puppy[] = mockPuppies;
 
   const filtered = useMemo(() => {
     return puppies.filter((p) => {
@@ -258,14 +176,6 @@ export default function PuppiesPage() {
       {/* Feed Grid */}
       <section className="pb-16 bg-[var(--color-warm-white)]">
         <div className="container-luxury">
-          {loading ? (
-            <div className="flex flex-col items-center justify-center py-20">
-              <Loader2 size={32} className="animate-spin text-[var(--color-gold)] mb-4" />
-              <p className="text-sm text-[var(--color-text-muted)]">
-                Chargement des chiots...
-              </p>
-            </div>
-          ) : (
             <AnimatePresence mode="wait">
               {filtered.length > 0 ? (
                 <motion.div
@@ -307,7 +217,6 @@ export default function PuppiesPage() {
                 </motion.div>
               )}
             </AnimatePresence>
-          )}
         </div>
       </section>
 

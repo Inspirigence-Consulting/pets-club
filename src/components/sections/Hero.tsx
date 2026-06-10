@@ -91,13 +91,13 @@ export default function Hero() {
           >
             <Link
               href="/chiots"
-              className="inline-flex items-center justify-center px-7 py-4 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-[14px] lg:text-[15px] font-semibold tracking-wide hover:shadow-[0_6px_24px_rgba(197,165,90,0.45)] hover:-translate-y-0.5 transition-all duration-300"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-[14px] lg:text-[15px] font-semibold tracking-wide hover:shadow-[0_6px_24px_rgba(197,165,90,0.45)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] transition duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               Voir les chiots disponibles
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-7 py-4 rounded-full border border-white/30 text-white text-[14px] lg:text-[15px] font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+              className="inline-flex items-center justify-center px-7 py-4 rounded-full border border-white/30 text-white text-[14px] lg:text-[15px] font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 active:scale-[0.97] transition duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
             >
               Nous écrire
             </Link>

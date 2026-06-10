@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
     root: resolve(__dirname),
   },
   images: {
+    // Self-hosted standalone is built on Windows and runs on Linux. sharp ships
+    // platform-specific binaries, so the runtime optimizer would crash on the VPS
+    // and break every image. The catalogue photos are already web-sized, so we
+    // serve them as-is and skip optimization entirely.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

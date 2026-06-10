@@ -57,10 +57,8 @@ export const metadata: Metadata = {
     siteName: "Pet's Club Maroc",
     images: [
       {
-        url: 'https://res.cloudinary.com/dlugprv1v/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/visual-showcase/after_WhatsApp%20Image%202026-01-28%20at%2017.25.03',
-        width: 1200,
-        height: 630,
-        alt: "Pet's Club Maroc — Chiots Spitz Nain et Berger Australien de lignées championnes",
+        url: 'https://thepetsclub.ma/images/catalogue/aussie-male-merle-20000.jpg',
+        alt: "Pet's Club Maroc, chiots Spitz Nain et Berger Australien de lignées championnes",
       },
     ],
   },
@@ -68,7 +66,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Pet's Club Maroc — Éleveur de Spitz Nain & Berger Australien",
     description: "Chiots Spitz Nain et Berger Australien de lignées championnes, élevés en famille au Maroc. Tests génétiques, garantie santé, accompagnement à vie.",
-    images: ['https://res.cloudinary.com/dlugprv1v/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/visual-showcase/after_WhatsApp%20Image%202026-01-28%20at%2017.25.03'],
+    images: ['https://thepetsclub.ma/images/catalogue/aussie-male-merle-20000.jpg'],
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://petsclubmaroc.com'),
 };
