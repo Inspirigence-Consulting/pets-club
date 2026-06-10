@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { mockPuppies } from '@/lib/mock-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://petsclubmaroc.com';
+  const baseUrl = 'https://thepetsclub.ma';
 
   const staticPages = [
     '',

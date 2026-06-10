@@ -6,8 +6,8 @@ export function OrganizationSchema() {
     '@type': 'Organization',
     name: "Pet's Club Maroc",
     description: "Élevage premium et éthique de Spitz Nain et Berger Australien au Maroc",
-    url: 'https://petsclubmaroc.com',
-    logo: 'https://petsclubmaroc.com/images/logo.png',
+    url: 'https://thepetsclub.ma',
+    logo: 'https://thepetsclub.ma/images/logo-pets-club-white.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+212653214751',
@@ -39,10 +39,10 @@ export function LocalBusinessSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://petsclubmaroc.com',
+    '@id': 'https://thepetsclub.ma',
     name: "Pet's Club Maroc",
     description: "Élevage premium et éthique de Spitz Nain (Pomeranian) et Berger Australien au Maroc",
-    url: 'https://petsclubmaroc.com',
+    url: 'https://thepetsclub.ma',
     telephone: '+212653214751',
     address: {
       '@type': 'PostalAddress',
@@ -52,7 +52,7 @@ export function LocalBusinessSchema() {
     },
     openingHours: ['Mo-Sa 09:00-18:00'],
     priceRange: '$$$',
-    image: 'https://petsclubmaroc.com/images/catalogue/aussie-male-merle-20000.jpg',
+    image: 'https://thepetsclub.ma/images/catalogue/aussie-male-merle-20000.jpg',
   };
 
   return (

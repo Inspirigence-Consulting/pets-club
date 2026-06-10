@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Marketplace - Annonces Chiots & Chiens au Maroc',
+  title: 'Marketplace, annonces chiots et chiens au Maroc',
   description:
     'Trouvez votre compagnon sur la marketplace Pet\'s Club Maroc. Annonces vérifiées de chiots et chiens de qualité, vendus par des particuliers et éleveurs au Maroc.',
+  alternates: { canonical: '/marketplace' },
   openGraph: {
     title: "Marketplace | Pet's Club Maroc",
     description:

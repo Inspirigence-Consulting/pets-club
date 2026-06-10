@@ -16,7 +16,7 @@ export default function Hero() {
       >
         <div className="relative w-full h-full rounded-[105px] overflow-hidden">
           <Image
-            src="/images/hero-dog.png"
+            src="/images/hero-dog.webp"
             alt="Berger Australien - The Pets Club Maroc"
             fill
             className="object-cover object-center"
@@ -34,7 +34,7 @@ export default function Hero() {
         className="absolute inset-0 lg:hidden"
       >
         <Image
-          src="/images/hero-dog.png"
+          src="/images/hero-dog-mobile.webp"
           alt="Berger Australien"
           fill
           className="object-cover object-right-top opacity-30"

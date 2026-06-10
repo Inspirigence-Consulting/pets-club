@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Berger Australien',
+  title: 'Berger Australien à vendre au Maroc',
   description:
     "Le Berger Australien : intelligence, grâce et loyauté. Découvrez nos lignées Working Line et Beauty Line au Maroc.",
+  alternates: { canonical: '/races/berger-australien' },
   openGraph: {
     title: "Berger Australien | Pet's Club Maroc",
     description:

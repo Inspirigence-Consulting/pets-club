@@ -22,10 +22,10 @@ export default function ParametresPage() {
 
   const [businessInfo, setBusinessInfo] = useState({
     name: "Pet's Club Maroc",
-    email: "contact@petsclubmaroc.com",
+    email: "contact@thepetsclub.ma",
     phone: "+212 6 00 00 00 00",
     address: "Casablanca, Maroc",
-    website: "https://petsclubmaroc.com",
+    website: "https://thepetsclub.ma",
     description:
       "Elevage premium et ethique de Spitz Nain (Pomeranian) et Berger Australien au Maroc.",
   })

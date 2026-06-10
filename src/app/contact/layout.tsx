@@ -3,9 +3,10 @@ import Script from 'next/script';
 import { FAQ_ITEMS } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact — Réserver un chiot Spitz Nain ou Berger Australien au Maroc',
+  title: 'Contact, réserver un chiot Spitz Nain ou Berger Australien au Maroc',
   description:
     "Contactez Pet's Club Maroc par WhatsApp, email ou formulaire. Réservation de chiots, visite de l'élevage, appel vidéo. Réponse sous 24 h.",
+  alternates: { canonical: '/contact' },
   openGraph: {
     title: "Contactez-nous | Pet's Club Maroc",
     description:

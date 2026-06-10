@@ -20,7 +20,7 @@ const breeds = [
   {
     ...BREEDS.australianShepherd,
     href: '/races/berger-australien',
-    image: '/images/hero-dog.png',
+    image: '/images/hero-dog.webp',
     fallbackColor: '#8fa88b',
     stats: [
       { label: 'Poids', value: '18-30 kg' },
@@ -65,6 +65,8 @@ export default function BreedShowcase() {
             <Link href={breed.href} className="block">
               <div className="aspect-[3/4] lg:aspect-auto lg:min-h-[700px] relative">
                 <div
+                  role="img"
+                  aria-label={`${breed.name} (${breed.nameEn})`}
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-110"
                   style={{
                     backgroundImage: `url(${breed.image})`,

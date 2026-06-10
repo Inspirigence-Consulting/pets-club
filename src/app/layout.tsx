@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display, Poppins } from 'next/font/google';
 import ConditionalLayout from '@/components/layout/ConditionalLayout';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
@@ -31,7 +31,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Pet's Club Maroc — Éleveur de Spitz Nain & Berger Australien",
+    default: "Pet's Club Maroc | Éleveur de Spitz Nain & Berger Australien",
     template: "%s | Pet's Club Maroc",
   },
   description: "Éleveur de Spitz Nain (Pomeranian) et Berger Australien au Maroc. Chiots issus de lignées championnes, socialisés 10 semaines en famille, avec suivi vétérinaire complet et accompagnement à vie.",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     'berger australien rabat',
   ],
   openGraph: {
-    title: "Pet's Club Maroc — Éleveur de Spitz Nain & Berger Australien",
+    title: "Pet's Club Maroc | Éleveur de Spitz Nain & Berger Australien",
     description: "Chiots Spitz Nain et Berger Australien de lignées championnes, élevés en famille au Maroc. Tests génétiques, garantie santé, accompagnement à vie.",
     type: 'website',
     locale: 'fr_FR',
@@ -64,11 +64,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Pet's Club Maroc — Éleveur de Spitz Nain & Berger Australien",
+    title: "Pet's Club Maroc | Éleveur de Spitz Nain & Berger Australien",
     description: "Chiots Spitz Nain et Berger Australien de lignées championnes, élevés en famille au Maroc. Tests génétiques, garantie santé, accompagnement à vie.",
     images: ['https://thepetsclub.ma/images/catalogue/aussie-male-merle-20000.jpg'],
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://petsclubmaroc.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://thepetsclub.ma'),
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#1a3a2a',
 };
 
 export default function RootLayout({

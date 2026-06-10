@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/', '/vendor/', '/login', '/register'],
     },
-    sitemap: 'https://petsclubmaroc.com/sitemap.xml',
+    sitemap: 'https://thepetsclub.ma/sitemap.xml',
   };
 }

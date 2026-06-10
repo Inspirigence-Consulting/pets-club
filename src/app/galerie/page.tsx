@@ -126,6 +126,8 @@ export default function GalleryPage() {
                 >
                   <div className="aspect-square relative overflow-hidden bg-[var(--color-cream)]">
                     <div
+                      role="img"
+                      aria-label={item.caption}
                       className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                       style={{
                         backgroundImage: `url(${item.image})`,
@@ -133,7 +135,7 @@ export default function GalleryPage() {
                       }}
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500">
                       <p className="text-sm text-white">{item.caption}</p>
                     </div>
                   </div>
@@ -226,7 +228,7 @@ export default function GalleryPage() {
               Vous êtes membre de la famille Pet&apos;s Club ? Partagez vos plus beaux moments avec votre compagnon.
             </p>
             <a
-              href="mailto:contact@petsclubmaroc.com?subject=Photo pour la galerie"
+              href="mailto:contact@thepetsclub.ma?subject=Photo pour la galerie"
               className="btn-outline"
             >
               Envoyer Vos Photos

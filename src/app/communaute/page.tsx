@@ -244,7 +244,7 @@ export default function CommunityPage() {
               Vous êtes membre de la famille Pet&apos;s Club ? Racontez-nous votre aventure avec votre compagnon.
             </p>
             <a
-              href="mailto:contact@petsclubmaroc.com?subject=Mon histoire avec mon compagnon Pet's Club"
+              href="mailto:contact@thepetsclub.ma?subject=Mon histoire avec mon compagnon Pet's Club"
               className="btn-gold"
             >
               Raconter Mon Histoire

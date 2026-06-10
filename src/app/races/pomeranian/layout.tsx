@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Spitz Nain (Pomeranian)',
+  title: 'Spitz Nain (Pomeranian) à vendre au Maroc',
   description:
     "Le Spitz Nain : petit format, grand caractère. Découvrez nos lignées Teddy Bear et Standard de Pomeranian au Maroc.",
+  alternates: { canonical: '/races/pomeranian' },
   openGraph: {
     title: "Spitz Nain | Pet's Club Maroc",
     description:

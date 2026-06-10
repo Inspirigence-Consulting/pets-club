@@ -143,7 +143,7 @@ export default function MarketplacePage() {
           {showFilters && (
             <div className="flex w-full flex-wrap gap-3 pt-3 sm:w-auto sm:pt-0">
               <Select value={breedFilter} onValueChange={setBreedFilter}>
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="w-full sm:w-[180px]">
                   <SelectValue placeholder="Race" />
                 </SelectTrigger>
                 <SelectContent>
@@ -157,7 +157,7 @@ export default function MarketplacePage() {
               </Select>
 
               <Select value={cityFilter} onValueChange={setCityFilter}>
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="w-full sm:w-[180px]">
                   <SelectValue placeholder="Ville" />
                 </SelectTrigger>
                 <SelectContent>
@@ -171,7 +171,7 @@ export default function MarketplacePage() {
               </Select>
 
               <Select value={genderFilter} onValueChange={setGenderFilter}>
-                <SelectTrigger className="w-[150px]">
+                <SelectTrigger className="w-full sm:w-[150px]">
                   <SelectValue placeholder="Genre" />
                 </SelectTrigger>
                 <SelectContent>
