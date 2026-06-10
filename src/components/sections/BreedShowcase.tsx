@@ -4,13 +4,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { BREEDS } from '@/lib/constants';
-import { cldImg } from '@/lib/cloudinary';
 
 const breeds = [
   {
     ...BREEDS.pomeranian,
     href: '/races/pomeranian',
-    image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 15.23.27 (1)', 'w_1200,h_1600,c_fill,g_auto,q_auto,f_auto'),
+    image: '/images/insta/ig_08.webp',
     fallbackColor: '#d4bc7c',
     stats: [
       { label: 'Poids', value: '1.8-3.5 kg' },
@@ -20,7 +19,7 @@ const breeds = [
   {
     ...BREEDS.australianShepherd,
     href: '/races/berger-australien',
-    image: '/images/hero-dog.webp',
+    image: '/images/insta/ig_12.webp',
     fallbackColor: '#8fa88b',
     stats: [
       { label: 'Poids', value: '18-30 kg' },

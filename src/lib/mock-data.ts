@@ -217,7 +217,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt:
       "Gamelles, couchage, espace sécurisé, premier rendez-vous vétérinaire. La liste complète pour ne rien oublier le jour J.",
     date: '2026-01-15',
-    image: CATALOGUE.pomMaleOrange,
+    image: '/images/insta/ig_09.webp',
     slug: 'preparer-arrivee-chiot',
     category: 'Guides',
   },
@@ -227,7 +227,7 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt:
       "Patella, MDR1, dysplasie : ce que ces tests révèlent et pourquoi un éleveur sérieux ne s'en passe pas.",
     date: '2026-01-08',
-    image: CATALOGUE.aussieTricolore,
+    image: '/images/insta/ig_12.webp',
     slug: 'importance-tests-genetiques',
     category: 'Santé',
   },
@@ -237,25 +237,26 @@ export const mockBlogPosts: BlogPost[] = [
     excerpt:
       "Intelligent et beau, oui. Mais aussi exigeant en exercice et en stimulation. Voici ce qu'il faut savoir avant de craquer.",
     date: '2025-12-20',
-    image: CATALOGUE.aussieMerle,
+    image: '/images/insta/ig_03.webp',
     slug: 'berger-australien-portrait',
     category: 'Races',
   },
 ];
 
+// Real photos from our Instagram @thepetsclubmaroc.
 export const mockGalleryItems: GalleryItem[] = [
-  { id: '1', image: CATALOGUE.aussieMerle, caption: 'Berger Australien bleu merle, yeux bleus', category: 'champions' },
-  { id: '2', image: CATALOGUE.pomMaleOrange, caption: 'Spitz Nain orange, mâle', category: 'champions' },
-  { id: '3', image: CATALOGUE.aussieTricolore, caption: 'Berger Australien black tricolore, yeux verts', category: 'champions' },
-  { id: '4', image: CATALOGUE.pomFemelleOrange, caption: 'Femelle orange, format micro', category: 'champions' },
-  { id: '5', image: CATALOGUE.pomFemelleNoirBlanc, caption: 'Spitz Nain noir et blanc, micro adulte', category: 'families' },
-  { id: '6', image: CATALOGUE.pomBlancsPortee, caption: 'Portée blanche, bientôt disponible', category: 'community' },
-  { id: '7', image: CATALOGUE.pomMaleOrange, caption: 'Pelage orange dense et soyeux', category: 'behind-scenes' },
-  { id: '8', image: CATALOGUE.aussieTricolore, caption: 'Socialisation au quotidien', category: 'behind-scenes' },
-  { id: '9', image: CATALOGUE.pomFemelleOrange, caption: 'Tendresse naturelle', category: 'families' },
-  { id: '10', image: CATALOGUE.aussieMerle, caption: 'Regard captivant du merle', category: 'community' },
-  { id: '11', image: CATALOGUE.pomFemelleNoirBlanc, caption: 'Boule de poils noir et blanc', category: 'families' },
-  { id: '12', image: CATALOGUE.aussieTricolore, caption: 'Compagnon fidèle et athlétique', category: 'community' },
+  { id: '1', image: '/images/insta/ig_08.webp', caption: 'Spitz Nain orange', category: 'champions' },
+  { id: '2', image: '/images/insta/ig_02.webp', caption: 'Chiots Berger Australien', category: 'champions' },
+  { id: '3', image: '/images/insta/ig_12.webp', caption: 'Berger Australien, yeux bleus', category: 'champions' },
+  { id: '4', image: '/images/insta/ig_09.webp', caption: 'Nos chiots Spitz Nain', category: 'families' },
+  { id: '5', image: '/images/insta/ig_06.webp', caption: 'Nos Spitz Nain au jardin', category: 'behind-scenes' },
+  { id: '6', image: '/images/insta/ig_11.webp', caption: 'Chiots merle, yeux clairs', category: 'champions' },
+  { id: '7', image: '/images/insta/ig_03.webp', caption: 'Berger Australien', category: 'champions' },
+  { id: '8', image: '/images/insta/ig_07.webp', caption: 'Portée de Spitz Nain', category: 'community' },
+  { id: '9', image: '/images/insta/ig_00.webp', caption: 'Chiot Spitz Nain', category: 'families' },
+  { id: '10', image: '/images/insta/ig_10.webp', caption: 'Spitz Nain joueur', category: 'community' },
+  { id: '11', image: '/images/insta/ig_05.webp', caption: 'Moment de douceur', category: 'families' },
+  { id: '12', image: '/images/insta/ig_06.webp', caption: 'Socialisation au quotidien', category: 'behind-scenes' },
 ];
 
 export const timelineEvents = [

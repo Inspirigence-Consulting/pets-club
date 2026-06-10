@@ -30,10 +30,10 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const TRUST_BADGES = [
-  { number: "200+", label: "Familles nous font confiance" },
-  { number: "15+", label: "Ans de savoir-faire" },
-  { number: "100%", label: "Chiots garantis en santé" },
-  { number: "50+", label: "Titres de champions" },
+  { number: "11.8K", label: "Abonnés sur Instagram" },
+  { number: "100%", label: "Vaccinés, pucés et pedigree" },
+  { number: "2", label: "Races d'exception" },
+  { number: "À vie", label: "Suivi et accompagnement" },
 ] as const;
 
 export const DIFFERENTIATORS = [

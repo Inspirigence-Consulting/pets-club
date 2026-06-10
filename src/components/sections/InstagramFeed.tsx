@@ -3,15 +3,14 @@
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Instagram, Heart, MessageCircle, X, Grid3X3, ExternalLink } from 'lucide-react';
+import { Instagram, X, Grid3X3, ExternalLink } from 'lucide-react';
 import { INSTAGRAM_URL } from '@/lib/constants';
-import { cldImg } from '@/lib/cloudinary';
 
 const PROFILE = {
   username: 'thepetsclubmaroc',
   fullName: 'The Pets Club',
-  posts: 260,
-  followers: '11.6k',
+  posts: 264,
+  followers: '11.8k',
   following: 771,
   bio: [
     'Élevage éthique professionnel',
@@ -22,13 +21,14 @@ const PROFILE = {
   ],
 };
 
+// Real posts from @thepetsclubmaroc.
 const instagramPosts = [
-  { id: '1', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.50.15', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '2.4k', comments: '48' },
-  { id: '2', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 17.06.36', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '1.8k', comments: '32' },
-  { id: '3', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.15.24 (1)', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 16.15.24 (1)', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '3.1k', comments: '67' },
-  { id: '4', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (4)', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (4)', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '2.7k', comments: '41' },
-  { id: '5', image: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (6)', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/before_WhatsApp Image 2026-01-28 at 15.23.28 (6)', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '1.5k', comments: '28' },
-  { id: '6', image: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.25.03', 'w_600,h_600,c_fill,g_auto,q_auto,f_auto'), imageLarge: cldImg('visual-showcase/after_WhatsApp Image 2026-01-28 at 17.25.03', 'w_1200,h_1200,c_fill,g_auto,q_auto,f_auto'), likes: '4.2k', comments: '89' },
+  { id: '1', image: '/images/insta/ig_08.webp', imageLarge: '/images/insta/ig_08.webp' },
+  { id: '2', image: '/images/insta/ig_02.webp', imageLarge: '/images/insta/ig_02.webp' },
+  { id: '3', image: '/images/insta/ig_12.webp', imageLarge: '/images/insta/ig_12.webp' },
+  { id: '4', image: '/images/insta/ig_09.webp', imageLarge: '/images/insta/ig_09.webp' },
+  { id: '5', image: '/images/insta/ig_11.webp', imageLarge: '/images/insta/ig_11.webp' },
+  { id: '6', image: '/images/insta/ig_06.webp', imageLarge: '/images/insta/ig_06.webp' },
 ];
 
 export default function InstagramFeed() {
@@ -157,16 +157,10 @@ export default function InstagramFeed() {
                   backgroundColor: 'var(--color-cream-dark)',
                 }}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                <div className="flex items-center gap-4 md:gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-90 group-hover:scale-100">
-                  <span className="flex items-center gap-1.5 text-white text-sm font-bold">
-                    <Heart size={18} className="fill-white" />
-                    {post.likes}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-white text-sm font-bold">
-                    <MessageCircle size={18} className="fill-white" />
-                    {post.comments}
-                  </span>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                <div className="flex flex-col items-center gap-1.5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-90 group-hover:scale-100">
+                  <Instagram size={22} />
+                  <span className="text-[11px] uppercase tracking-widest">Voir</span>
                 </div>
               </div>
             </motion.button>
@@ -231,20 +225,12 @@ export default function InstagramFeed() {
               </div>
 
               {/* Info bar */}
-              <div className="flex items-center gap-6 mt-4">
-                <span className="flex items-center gap-2 text-white/80 text-sm font-medium">
-                  <Heart size={18} className="text-red-400 fill-red-400" />
-                  {selectedPost.likes}
-                </span>
-                <span className="flex items-center gap-2 text-white/80 text-sm font-medium">
-                  <MessageCircle size={18} />
-                  {selectedPost.comments}
-                </span>
+              <div className="flex items-center justify-center mt-4">
                 <a
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ml-auto flex items-center gap-1.5 text-white/50 hover:text-white text-sm transition-colors"
+                  className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm transition-colors"
                 >
                   <Instagram size={16} />
                   Voir sur Instagram
