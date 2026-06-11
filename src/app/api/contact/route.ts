@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 interface ContactFormData {
   name: string;
-  email: string;
+  email?: string;
   whatsapp: string;
   city?: string;
   subject: string;
@@ -12,6 +12,69 @@ interface ContactFormData {
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
+}
+
+const SUBJECT_LABELS: Record<string, string> = {
+  general: 'Renseignement general',
+  reserve: 'Reservation',
+  visit: 'Visite',
+  'video-call': 'Appel video',
+  'waiting-list': "Liste d'attente",
+};
+
+function esc(s: string): string {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// Notify Zayd on Telegram (via @Perclubmarocbot). Best-effort, never blocks the response.
+async function notifyTelegram(data: ContactFormData): Promise<void> {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const chatIds = (process.env.TELEGRAM_LEAD_CHAT_ID || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  if (!token || chatIds.length === 0) {
+    console.log('[Telegram] not configured, skipping lead notification');
+    return;
+  }
+
+  const wa = String(data.whatsapp || '').replace(/[^0-9]/g, '');
+  const text = [
+    '🐾 <b>Nouveau lead site web</b>',
+    '',
+    `<b>Nom:</b> ${esc(data.name)}`,
+    `<b>WhatsApp:</b> +${wa}`,
+    data.city ? `<b>Ville:</b> ${esc(data.city)}` : '',
+    `<b>Demande:</b> ${esc(SUBJECT_LABELS[data.subject] || data.subject)}`,
+    data.puppyName ? `<b>Chiot:</b> ${esc(data.puppyName)}` : '',
+    data.email ? `<b>Email:</b> ${esc(data.email)}` : '',
+    data.message ? `\n<i>${esc(data.message)}</i>` : '',
+    `\n<a href="https://wa.me/${wa}">Ouvrir WhatsApp</a>`,
+    data.source ? `<i>via ${esc(data.source)}</i>` : '',
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  await Promise.all(
+    chatIds.map(async (chatId) => {
+      try {
+        const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text,
+            parse_mode: 'HTML',
+            disable_web_page_preview: true,
+          }),
+        });
+        if (!res.ok) console.error('[Telegram] send failed:', await res.text());
+      } catch (error) {
+        console.error('[Telegram] error:', error);
+      }
+    })
+  );
 }
 
 // Rate limiting store (in production use Redis)
@@ -124,21 +187,23 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, email, whatsapp, city, subject, message, puppyName, recaptchaToken, ...utmParams } = body;
 
-    // Validation
-    if (!name || !email || !whatsapp || !subject) {
+    // Validation — name + WhatsApp are the only required fields (low-friction lead capture)
+    if (!name || !whatsapp || !subject) {
       return NextResponse.json(
-        { error: 'Veuillez remplir tous les champs obligatoires.' },
+        { error: 'Veuillez indiquer votre nom et votre WhatsApp.' },
         { status: 400 }
       );
     }
 
-    // Email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: 'Adresse email invalide.' },
-        { status: 400 }
-      );
+    // Email format validation (only if an email was provided)
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        return NextResponse.json(
+          { error: 'Adresse email invalide.' },
+          { status: 400 }
+        );
+      }
     }
 
     // reCAPTCHA verification
@@ -152,8 +217,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Create contact in Kommo CRM
-    await createKommoContact({
+    const lead: ContactFormData = {
       name,
       email,
       whatsapp,
@@ -162,7 +226,10 @@ export async function POST(request: NextRequest) {
       message,
       puppyName,
       ...utmParams,
-    });
+    };
+
+    // Notify Zayd on Telegram (primary) + create contact in Kommo if configured.
+    await Promise.all([notifyTelegram(lead), createKommoContact(lead)]);
 
     return NextResponse.json({
       success: true,

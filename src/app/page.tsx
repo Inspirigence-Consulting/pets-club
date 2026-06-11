@@ -5,6 +5,7 @@ import FeaturedPuppies from '@/components/sections/FeaturedPuppies';
 import BreedShowcase from '@/components/sections/BreedShowcase';
 import Differentiators from '@/components/sections/Differentiators';
 import InstagramFeed from '@/components/sections/InstagramFeed';
+import LeadCapture from '@/components/sections/LeadCapture';
 import Newsletter from '@/components/sections/Newsletter';
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function Home() {
       <BreedShowcase />
       <Differentiators />
       <InstagramFeed />
+      <LeadCapture />
       <Newsletter />
     </>
   );

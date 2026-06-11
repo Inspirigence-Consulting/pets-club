@@ -104,13 +104,12 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
         </div>
         <div>
           <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-            Email *
+            Email
           </label>
           <input
             type="email"
-            required
             className="form-input"
-            placeholder="votre@email.com"
+            placeholder="votre@email.com (facultatif)"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
