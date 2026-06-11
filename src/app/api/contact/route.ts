@@ -77,6 +77,46 @@ async function notifyTelegram(data: ContactFormData): Promise<void> {
   );
 }
 
+// Notify Zayd on WhatsApp (via the WAHA engine the agent runs on). Best-effort.
+async function notifyWhatsApp(data: ContactFormData): Promise<void> {
+  const wahaUrl = process.env.WAHA_URL;
+  const apiKey = process.env.WAHA_API_KEY;
+  const session = process.env.WAHA_SESSION || 'default';
+  const to = (process.env.LEAD_WHATSAPP_TO || '').replace(/[^0-9]/g, '');
+
+  if (!wahaUrl || !apiKey || !to) {
+    console.log('[WhatsApp] not configured, skipping lead notification');
+    return;
+  }
+
+  const wa = String(data.whatsapp || '').replace(/[^0-9]/g, '');
+  const text = [
+    '🐾 *Nouveau lead site web*',
+    '',
+    `*Nom:* ${data.name}`,
+    `*WhatsApp:* +${wa}`,
+    data.city ? `*Ville:* ${data.city}` : '',
+    `*Demande:* ${SUBJECT_LABELS[data.subject] || data.subject}`,
+    data.puppyName ? `*Chiot:* ${data.puppyName}` : '',
+    data.email ? `*Email:* ${data.email}` : '',
+    data.message ? `\n${data.message}` : '',
+    `\nOuvrir: https://wa.me/${wa}`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  try {
+    const res = await fetch(`${wahaUrl.replace(/\/$/, '')}/api/sendText`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Api-Key': apiKey },
+      body: JSON.stringify({ session, chatId: `${to}@c.us`, text }),
+    });
+    if (!res.ok) console.error('[WhatsApp] send failed:', await res.text());
+  } catch (error) {
+    console.error('[WhatsApp] error:', error);
+  }
+}
+
 // Rate limiting store (in production use Redis)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
 
@@ -228,8 +268,8 @@ export async function POST(request: NextRequest) {
       ...utmParams,
     };
 
-    // Notify Zayd on Telegram (primary) + create contact in Kommo if configured.
-    await Promise.all([notifyTelegram(lead), createKommoContact(lead)]);
+    // Notify Zayd on WhatsApp (primary, his channel) + Telegram (backup) + Kommo if configured.
+    await Promise.all([notifyWhatsApp(lead), notifyTelegram(lead), createKommoContact(lead)]);
 
     return NextResponse.json({
       success: true,
