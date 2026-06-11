@@ -13,7 +13,7 @@ export default function ConditionalLayout({
   const isAdmin = pathname.startsWith("/admin");
   const isVendor = pathname.startsWith("/vendor");
   const hideChrome = isAdmin || isVendor;
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "/en";
 
   if (hideChrome) {
     return <>{children}</>;

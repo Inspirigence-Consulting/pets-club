@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Instagram, LogIn } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { INSTAGRAM_URL } from '@/lib/constants';
+import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
 
 const NAV_ITEMS = [
   { label: 'Nos Chiots', href: '/chiots' },
@@ -24,6 +25,20 @@ const NAV_ITEMS = [
   { label: 'Galerie', href: '/galerie' },
 ];
 
+const EN_NAV_ITEMS = [
+  { label: 'Puppies', href: '/en/chiots' },
+  {
+    label: 'Breeds',
+    href: '#',
+    children: [
+      { label: 'Pomeranian', href: '/en#breeds' },
+      { label: 'Australian Shepherd', href: '/en#breeds' },
+    ],
+  },
+  { label: 'Why us', href: '/en#why' },
+  { label: 'Gallery', href: '/en#gallery' },
+];
+
 export default function Header({ solid = false }: { solid?: boolean }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -31,6 +46,11 @@ export default function Header({ solid = false }: { solid?: boolean }) {
   const [mobileSubOpen, setMobileSubOpen] = useState(false);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
+  const isEn = pathname === '/en' || pathname.startsWith('/en/');
+  const navItems = isEn ? EN_NAV_ITEMS : NAV_ITEMS;
+  const homeHref = isEn ? '/en' : '/';
+  const contactHref = isEn ? '/en/contact' : '/contact';
+  const loginLabel = isEn ? 'Sign in' : 'Se connecter';
 
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
@@ -73,7 +93,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
       >
         <div className="w-full max-w-[1440px] mx-auto px-6 lg:px-[80px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10 shrink-0">
+          <Link href={homeHref} className="relative z-10 shrink-0">
             <Image
               src="/images/logo-pets-club-white.png"
               alt="The Pets Club"
@@ -86,7 +106,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6" style={{ fontFamily: 'var(--font-display)' }}>
-            {NAV_ITEMS.map((item) => (
+            {navItems.map((item) => (
               item.children ? (
                 <div
                   key={item.label}
@@ -138,6 +158,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
 
           {/* Right side: CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <LanguageSwitcher light />
             <a
               href={INSTAGRAM_URL}
               target="_blank"
@@ -149,9 +170,9 @@ export default function Header({ solid = false }: { solid?: boolean }) {
             </a>
             <Link href="/login" className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-[13px] font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(197,165,90,0.4)] hover:-translate-y-0.5 transition-all duration-300">
               <LogIn size={15} />
-              Se connecter
+              {loginLabel}
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-white/25 text-white/90 text-[13px] font-semibold tracking-wide hover:bg-white/10 hover:border-white/40 transition-all duration-300">
+            <Link href={contactHref} className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-white/25 text-white/90 text-[13px] font-semibold tracking-wide hover:bg-white/10 hover:border-white/40 transition-all duration-300">
               Contact
             </Link>
           </div>
@@ -183,7 +204,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               className="flex flex-col items-center justify-center h-full gap-1 pt-20"
               style={{ fontFamily: 'var(--font-display)' }}
             >
-              {NAV_ITEMS.map((item, i) => (
+              {navItems.map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 10 }}
@@ -235,16 +256,17 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               ))}
 
               <div className="mt-8 flex flex-col items-center gap-4">
+                <LanguageSwitcher light />
                 <Link
                   href="/login"
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gradient-to-r from-[var(--color-gold)] to-[var(--color-gold-dark)] text-white text-sm font-semibold tracking-wide hover:shadow-[0_4px_20px_rgba(197,165,90,0.4)] transition-all duration-300"
                 >
                   <LogIn size={16} />
-                  Se connecter
+                  {loginLabel}
                 </Link>
                 <Link
-                  href="/contact"
+                  href={contactHref}
                   onClick={() => setIsOpen(false)}
                   className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/30 text-white text-sm font-semibold tracking-wide hover:bg-white/10 hover:border-white/50 transition-all duration-300"
                 >

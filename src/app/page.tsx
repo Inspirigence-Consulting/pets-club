@@ -9,7 +9,10 @@ import LeadCapture from '@/components/sections/LeadCapture';
 import Newsletter from '@/components/sections/Newsletter';
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: '/',
+    languages: { 'fr-MA': '/', 'en': '/en' },
+  },
 };
 
 export default function Home() {

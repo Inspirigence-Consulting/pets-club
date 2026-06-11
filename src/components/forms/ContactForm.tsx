@@ -8,16 +8,70 @@ import { FORM_SUBJECTS } from '@/lib/constants';
 interface ContactFormProps {
   defaultSubject?: string;
   puppyName?: string;
+  lang?: 'fr' | 'en';
 }
 
-export default function ContactForm({ defaultSubject = 'general', puppyName }: ContactFormProps) {
+const SUBJECTS_EN = [
+  { value: 'general', label: 'General enquiry' },
+  { value: 'reserve', label: 'Reserve a companion' },
+  { value: 'visit', label: 'Schedule a visit' },
+  { value: 'video-call', label: 'Schedule a video call' },
+  { value: 'waiting-list', label: 'Join the waiting list' },
+];
+
+const COPY = {
+  fr: {
+    successTitle: 'Message envoyé',
+    successBody: 'Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.',
+    name: 'Nom complet *',
+    namePh: 'Votre nom',
+    email: 'Email',
+    emailPh: 'votre@email.com (facultatif)',
+    whatsapp: 'WhatsApp *',
+    city: 'Ville',
+    cityPh: 'Votre ville',
+    subject: 'Objet de votre demande *',
+    message: 'Message',
+    messagePh: 'Parlez-nous de vos attentes...',
+    sending: 'Envoi en cours...',
+    send: 'Envoyer',
+    err: 'Une erreur est survenue.',
+    connErr: 'Erreur de connexion. Veuillez réessayer.',
+    privacy: 'En soumettant ce formulaire, vous acceptez notre politique de confidentialité.',
+    interested: (p: string) => `Je suis intéressé(e) par ${p}.`,
+  },
+  en: {
+    successTitle: 'Message sent',
+    successBody: 'Thank you for reaching out. Our team will get back to you shortly.',
+    name: 'Full name *',
+    namePh: 'Your name',
+    email: 'Email',
+    emailPh: 'you@email.com (optional)',
+    whatsapp: 'WhatsApp *',
+    city: 'City',
+    cityPh: 'Your city',
+    subject: 'How can we help? *',
+    message: 'Message',
+    messagePh: 'Tell us what you are looking for...',
+    sending: 'Sending...',
+    send: 'Send',
+    err: 'Something went wrong.',
+    connErr: 'Connection error. Please try again.',
+    privacy: 'By submitting this form, you accept our privacy policy.',
+    interested: (p: string) => `I'm interested in ${p}.`,
+  },
+};
+
+export default function ContactForm({ defaultSubject = 'general', puppyName, lang = 'fr' }: ContactFormProps) {
+  const t = COPY[lang];
+  const subjects = lang === 'en' ? SUBJECTS_EN : FORM_SUBJECTS;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     whatsapp: '',
     city: '',
     subject: defaultSubject,
-    message: puppyName ? `Je suis intéressé(e) par ${puppyName}.` : '',
+    message: puppyName ? t.interested(puppyName) : '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -52,13 +106,13 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || 'Une erreur est survenue.');
+        setError(data.error || t.err);
         return;
       }
 
       setIsSubmitted(true);
     } catch {
-      setError('Erreur de connexion. Veuillez réessayer.');
+      setError(t.connErr);
     } finally {
       setIsSubmitting(false);
     }
@@ -77,10 +131,10 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
           </svg>
         </div>
         <h3 className="font-[var(--font-heading)] text-2xl font-bold text-[var(--color-charcoal)] mb-3">
-          Message envoyé
+          {t.successTitle}
         </h3>
         <p className="text-[var(--color-text-light)]">
-          Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.
+          {t.successBody}
         </p>
       </motion.div>
     );
@@ -91,25 +145,25 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-            Nom complet *
+            {t.name}
           </label>
           <input
             type="text"
             required
             className="form-input"
-            placeholder="Votre nom"
+            placeholder={t.namePh}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
         </div>
         <div>
           <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-            Email
+            {t.email}
           </label>
           <input
             type="email"
             className="form-input"
-            placeholder="votre@email.com (facultatif)"
+            placeholder={t.emailPh}
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           />
@@ -119,7 +173,7 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-            WhatsApp *
+            {t.whatsapp}
           </label>
           <input
             type="tel"
@@ -132,12 +186,12 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
         </div>
         <div>
           <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-            Ville
+            {t.city}
           </label>
           <input
             type="text"
             className="form-input"
-            placeholder="Votre ville"
+            placeholder={t.cityPh}
             value={formData.city}
             onChange={(e) => setFormData({ ...formData, city: e.target.value })}
           />
@@ -146,7 +200,7 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
 
       <div>
         <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-          Objet de votre demande *
+          {t.subject}
         </label>
         <select
           required
@@ -154,7 +208,7 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
           value={formData.subject}
           onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
         >
-          {FORM_SUBJECTS.map((s) => (
+          {subjects.map((s) => (
             <option key={s.value} value={s.value}>
               {s.label}
             </option>
@@ -164,12 +218,12 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
 
       <div>
         <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-          Message
+          {t.message}
         </label>
         <textarea
           rows={4}
           className="form-input resize-none"
-          placeholder="Parlez-nous de vos attentes..."
+          placeholder={t.messagePh}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
         />
@@ -183,12 +237,12 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
         {isSubmitting ? (
           <>
             <Loader2 size={16} className="animate-spin" />
-            Envoi en cours...
+            {t.sending}
           </>
         ) : (
           <>
             <Send size={16} />
-            Envoyer
+            {t.send}
           </>
         )}
       </button>
@@ -198,7 +252,7 @@ export default function ContactForm({ defaultSubject = 'general', puppyName }: C
       )}
 
       <p className="text-xs text-[var(--color-text-muted)] text-center">
-        En soumettant ce formulaire, vous acceptez notre politique de confidentialité.
+        {t.privacy}
       </p>
     </form>
   );

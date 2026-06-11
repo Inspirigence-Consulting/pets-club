@@ -1,92 +1,65 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, ChevronDown } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const languages = [
-  { code: 'fr', label: 'Français', flag: 'FR' },
-  { code: 'en', label: 'English', flag: 'EN' },
-  { code: 'es', label: 'Español', flag: 'ES' },
-  { code: 'it', label: 'Italiano', flag: 'IT' },
-  { code: 'de', label: 'Deutsch', flag: 'DE' },
-  { code: 'ar', label: 'العربية', flag: 'AR' },
-];
+// FR <-> EN path mapping (only the public buyer-journey pages have an English twin).
+const TO_EN: Record<string, string> = {
+  '/': '/en',
+  '/chiots': '/en/chiots',
+  '/contact': '/en/contact',
+};
+const TO_FR: Record<string, string> = {
+  '/en': '/',
+  '/en/chiots': '/chiots',
+  '/en/contact': '/contact',
+};
 
 interface LanguageSwitcherProps {
   light?: boolean;
 }
 
 export default function LanguageSwitcher({ light = false }: LanguageSwitcherProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState('fr');
+  const pathname = usePathname();
+  const router = useRouter();
+  const isEn = pathname === '/en' || pathname.startsWith('/en/');
 
-  const current = languages.find((l) => l.code === currentLang) || languages[0];
-
-  const handleSelect = (code: string) => {
-    setCurrentLang(code);
-    setIsOpen(false);
-
-    // Set HTML dir for RTL
-    if (code === 'ar') {
-      document.documentElement.setAttribute('dir', 'rtl');
-      document.documentElement.setAttribute('lang', 'ar');
-    } else {
-      document.documentElement.setAttribute('dir', 'ltr');
-      document.documentElement.setAttribute('lang', code);
+  const go = (lang: 'fr' | 'en') => {
+    if (lang === 'en' && !isEn) {
+      router.push(TO_EN[pathname] || '/en');
+    } else if (lang === 'fr' && isEn) {
+      router.push(TO_FR[pathname] || '/');
     }
-
-    // In production, this would trigger next-intl locale change
-    // or redirect to /{locale}/current-path
   };
 
   return (
-    <div className="relative">
+    <div
+      className={cn(
+        'flex items-center gap-1 text-xs font-semibold',
+        light ? 'text-white/70' : 'text-[var(--color-text-light)]'
+      )}
+    >
+      <Globe size={14} className="mr-1 opacity-70" />
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => go('fr')}
         className={cn(
-          'flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors rounded-sm',
-          light
-            ? 'text-white/70 hover:text-white'
-            : 'text-[var(--color-text-light)] hover:text-[var(--color-text)]'
+          'px-1.5 py-0.5 rounded transition-colors',
+          !isEn ? 'text-[var(--color-gold)]' : 'opacity-70 hover:opacity-100'
         )}
       >
-        <Globe size={14} />
-        <span>{current.flag}</span>
-        <ChevronDown size={12} className={cn('transition-transform', isOpen && 'rotate-180')} />
+        FR
       </button>
-
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-            <motion.div
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 4 }}
-              transition={{ duration: 0.15 }}
-              className="absolute top-full right-0 mt-2 bg-white shadow-[var(--shadow-elevated)] border border-[var(--color-cream-dark)] min-w-[160px] py-1 z-50"
-            >
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => handleSelect(lang.code)}
-                  className={cn(
-                    'w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors text-left',
-                    currentLang === lang.code
-                      ? 'bg-[var(--color-cream)] text-[var(--color-gold)] font-medium'
-                      : 'text-[var(--color-text)] hover:bg-[var(--color-cream)]'
-                  )}
-                >
-                  <span className="text-xs font-mono w-5">{lang.flag}</span>
-                  <span>{lang.label}</span>
-                </button>
-              ))}
-            </motion.div>
-          </>
+      <span className="opacity-30">/</span>
+      <button
+        onClick={() => go('en')}
+        className={cn(
+          'px-1.5 py-0.5 rounded transition-colors',
+          isEn ? 'text-[var(--color-gold)]' : 'opacity-70 hover:opacity-100'
         )}
-      </AnimatePresence>
+      >
+        EN
+      </button>
     </div>
   );
 }
